@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Eye, Briefcase, X, Download, ZoomIn, ZoomOut, MapPin, Github, Linkedin, Mail, Wrench, Rocket, GraduationCap } from 'lucide-react';
+import { Eye, Briefcase, Download, MapPin, Github, Linkedin, Mail, Wrench, Rocket, GraduationCap } from 'lucide-react';
 import { profileData } from '../../data/profileData';
 import { certs, projects as allProjects, hackathonWins, contestWins, projectExpos } from '@/lib/content';
 
@@ -12,8 +12,6 @@ const COUNTS = {
 };
 
 const Hero = () => {
-  const [showResume, setShowResume] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
   const { name, role, summary, location, education, techStack, github, linkedin, email } = profileData;
 
   const statsRef = useRef<HTMLDivElement>(null);
@@ -66,24 +64,6 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (showResume) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [showResume]);
-
-  useEffect(() => {
-    if (!showResume) setZoomLevel(1);
-  }, [showResume]);
-
-  const handleZoomIn = () => setZoomLevel(prev => Math.min(prev + 0.25, 3));
-  const handleZoomOut = () => setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-24">
       {/* Background Effects - GLOW INTENSITY INCREASED */}
@@ -127,13 +107,15 @@ const Hero = () => {
               <Briefcase size={18} />
               View Projects
             </a>
-            <button
-              onClick={() => setShowResume(true)}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
             >
               <Eye size={18} />
               View Resume
-            </button>
+            </a>
           </div>
 
           {/* --- SLIM STATS STRIP --- */}
@@ -341,38 +323,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* --- RESUME MODAL --- */}
-      {showResume && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div
-            className="absolute inset-0 bg-background/90 backdrop-blur-md"
-            onClick={() => setShowResume(false)}
-          />
-
-          <div className="relative w-full max-w-6xl h-[90vh] glass-card flex flex-col animate-scale-in border border-white/10 shadow-2xl overflow-hidden">
-            <div className="flex flex-wrap items-center justify-between p-4 border-b border-white/10 bg-black/40 z-10 shrink-0 gap-4">
-              <h3 className="text-xl font-semibold text-white">Resume Preview</h3>
-              <div className="flex items-center gap-2 md:gap-4">
-                <div className="flex items-center bg-white/10 rounded-lg p-1">
-                  <button onClick={handleZoomOut} className="p-1.5 hover:bg-white/10 rounded-md transition-colors" title="Zoom Out"><ZoomOut size={18} /></button>
-                  <span className="px-2 text-xs font-mono w-12 text-center">{Math.round(zoomLevel * 100)}%</span>
-                  <button onClick={handleZoomIn} className="p-1.5 hover:bg-white/10 rounded-md transition-colors" title="Zoom In"><ZoomIn size={18} /></button>
-                </div>
-                <a href="/resume.pdf" download="S_Shriram_Resume.pdf" className="btn-primary py-1.5 px-3 text-sm flex items-center gap-2 h-9">
-                  <Download size={16} /> <span className="hidden sm:inline">Download PDF</span>
-                </a>
-                <button onClick={() => setShowResume(false)} className="p-1.5 hover:bg-white/10 rounded-full transition-colors text-white/70 hover:text-white"><X size={24} /></button>
-              </div>
-            </div>
-            <div className="flex-1 overflow-auto bg-neutral-900/50 relative flex items-start justify-center p-4 md:p-8">
-              <div style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'top center', transition: 'transform 0.2s ease-out' }} className="shadow-2xl">
-                <img src="/resume.png" alt="Resume Preview" className="max-w-full w-auto h-auto object-contain bg-white" style={{ minWidth: 'min(100%, 800px)' }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
