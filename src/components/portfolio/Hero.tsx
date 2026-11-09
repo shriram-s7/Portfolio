@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { Eye, Briefcase, X, Download, ZoomIn, ZoomOut, MapPin, Github, Linkedin, Mail, Wrench, Rocket, GraduationCap } from 'lucide-react';
 import { profileData } from '../../data/profileData';
+import { certs, projects as allProjects, hackathonWins, contestWins, projectExpos } from '@/lib/content';
+
+// Counts are computed from the verified data files, so they can never drift from the proof.
+const COUNTS = {
+  certifications: certs.filter((c) => c.tier !== '4-education').length,
+  projects: allProjects.length,
+  hackathons: hackathonWins.length,
+  competitions: contestWins.length + projectExpos.filter((w) => w.rank).length,
+};
 
 const Hero = () => {
   const [showResume, setShowResume] = useState(false);
@@ -33,10 +42,10 @@ const Hero = () => {
             const easeProgress = progress * (2 - progress);
             
             setStats({
-              certifications: Math.round(easeProgress * 15),
-              projects: Math.round(easeProgress * 10),
-              hackathons: Math.round(easeProgress * 3),
-              competitions: Math.round(easeProgress * 10)
+              certifications: Math.round(easeProgress * COUNTS.certifications),
+              projects: Math.round(easeProgress * COUNTS.projects),
+              hackathons: Math.round(easeProgress * COUNTS.hackathons),
+              competitions: Math.round(easeProgress * COUNTS.competitions)
             });
             
             if (progress < 1) {
@@ -138,15 +147,15 @@ const Hero = () => {
           >
             {/* Item 1 */}
             <div className="flex items-center justify-center md:justify-start gap-2 hover:-translate-y-0.5 transition-transform duration-200 ease-out cursor-default">
-              <span className="font-bold text-lg md:text-[22px] text-[#00C9A7] leading-none shrink-0">{stats.certifications}+</span>
-              <span className="text-[#94A3B8] text-[11px] md:text-[13px] font-normal leading-tight">Certifications</span>
+              <span className="font-bold text-lg md:text-[22px] text-[#00C9A7] leading-none shrink-0">{stats.certifications}</span>
+              <span className="text-[#94A3B8] text-[11px] md:text-[13px] font-normal leading-tight">Certifications & Courses</span>
             </div>
 
             <div className="hidden md:block w-[1px] h-5 bg-white/10 shrink-0" />
 
             {/* Item 2 */}
             <div className="flex items-center justify-center md:justify-start gap-2 hover:-translate-y-0.5 transition-transform duration-200 ease-out cursor-default">
-              <span className="font-bold text-lg md:text-[22px] text-[#A78BFA] leading-none shrink-0">{stats.projects}+</span>
+              <span className="font-bold text-lg md:text-[22px] text-[#A78BFA] leading-none shrink-0">{stats.projects}</span>
               <span className="text-[#94A3B8] text-[11px] md:text-[13px] font-normal leading-tight">Full Stack & AI/ML Projects</span>
             </div>
 
@@ -154,7 +163,7 @@ const Hero = () => {
 
             {/* Item 3 */}
             <div className="flex items-center justify-center md:justify-start gap-2 hover:-translate-y-0.5 transition-transform duration-200 ease-out cursor-default">
-              <span className="font-bold text-lg md:text-[22px] text-[#F59E0B] leading-none shrink-0">{stats.hackathons}+</span>
+              <span className="font-bold text-lg md:text-[22px] text-[#F59E0B] leading-none shrink-0">{stats.hackathons}</span>
               <span className="text-[#94A3B8] text-[11px] md:text-[13px] font-normal leading-tight">Hackathon Wins</span>
             </div>
 
@@ -162,7 +171,7 @@ const Hero = () => {
 
             {/* Item 4 */}
             <div className="flex items-center justify-center md:justify-start gap-2 hover:-translate-y-0.5 transition-transform duration-200 ease-out cursor-default">
-              <span className="font-bold text-lg md:text-[22px] text-[#F472B6] leading-none shrink-0">{stats.competitions}+</span>
+              <span className="font-bold text-lg md:text-[22px] text-[#F472B6] leading-none shrink-0">{stats.competitions}</span>
               <span className="text-[#94A3B8] text-[11px] md:text-[13px] font-normal leading-tight">Competition Wins</span>
             </div>
           </div>
@@ -189,7 +198,7 @@ const Hero = () => {
                     )}
                     <div>
                       <p className="text-[10px] md:text-[12px] tracking-[0.05em] md:tracking-[0.08em] text-[#94A3B8] font-semibold uppercase leading-none">EASWARI ENGINEERING COLLEGE</p>
-                      <h4 className="font-bold text-base md:text-[20px] text-white leading-[1.3] mt-1.5">B.E. Computer Science & Engineering</h4>
+                      <h2 className="font-bold text-base md:text-[20px] text-white leading-[1.3] mt-1.5">B.E. Computer Science & Engineering</h2>
                     </div>
                   </div>
                   <div className="mt-4">
@@ -256,7 +265,7 @@ const Hero = () => {
                         </span>
                         <span className="text-[#A78BFA] font-medium">Diploma in Data Science</span>
                       </div>
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] md:text-[11px] font-bold bg-[#7C3AED]/20 text-[#A78BFA] shrink-0">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] md:text-[11px] font-bold bg-[#7C3AED]/20 text-[#C4B5FD] shrink-0">
                         In Progress
                       </span>
                     </div>
@@ -265,7 +274,7 @@ const Hero = () => {
                 
                 <div className="text-right shrink-0">
                   <p className="text-[10px] md:text-[12px] text-[#94A3B8] uppercase tracking-wider font-semibold">CGPA</p>
-                  <p className="text-3xl md:text-[40px] font-extrabold text-[#845EF7] leading-none mt-1.5">7.59</p>
+                  <p className="text-3xl md:text-[40px] font-extrabold text-[#845EF7] leading-none mt-1.5">7.52</p>
                 </div>
               </div>
             </div>
@@ -277,7 +286,7 @@ const Hero = () => {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full">
               {/* Resume Button */}
               <a
-                href="/S_Shriram_Resume.pdf"
+                href="/resume.pdf"
                 download="S_Shriram_Resume.pdf"
                 className="w-full md:w-auto justify-center bg-gradient-to-r from-[#00C9A7] to-[#845EF7] text-white text-[14px] font-semibold rounded-full py-2.5 px-5 flex items-center gap-2 hover:scale-105 transition-all duration-300 shrink-0"
                 title="Download Resume"
@@ -329,76 +338,6 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-
-            {/* Divider Line */}
-            <div className="w-full h-[1px] bg-white/10 my-1" />
-
-            {/* Row 2: Current Focus Dashboard Panel */}
-            <div className="w-full p-4 rounded-xl border border-white/5 border-l-[3px] border-l-[#00C9A7] bg-[#00C9A7]/[0.04] flex flex-col items-center justify-center gap-3.5 mt-1">
-              {/* Header with pulsing green dot */}
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4ADE80] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ADE80]"></span>
-                </span>
-                <span className="text-[11px] font-bold text-[#00C9A7] uppercase tracking-wider">Current Focus</span>
-              </div>
-
-              {/* Chips row */}
-              <div className="flex flex-col md:flex-row items-center w-full md:w-auto justify-center gap-3">
-                {/* AuraMed */}
-                <button
-                  onClick={() => {
-                    const event = new CustomEvent('trigger-project-view', {
-                      detail: { projectId: 'auramed' }
-                    });
-                    window.dispatchEvent(event);
-                  }}
-                  className="inline-flex items-center gap-2 rounded-[20px] border hover:border-[#00C9A7]/40 hover:bg-white/[0.1] text-white text-[14px] font-semibold whitespace-normal md:whitespace-nowrap hover:scale-105 transition-all duration-200 cursor-pointer w-full md:w-auto justify-center text-center"
-                  style={{
-                    padding: '10px 18px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                    borderColor: 'rgba(255, 255, 255, 0.12)',
-                    boxShadow: '0 0 12px rgba(0, 201, 167, 0.2)'
-                  }}
-                  title="View AuraMed Project details"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00C9A7] shadow-[0_0_8px_#00C9A7] shrink-0" />
-                  <span className="font-bold text-white">AuraMed</span>
-                  <span className="text-[12.5px] text-[#4ADE80] font-normal italic ml-0.5">· Upgrading</span>
-                </button>
-
-                {/* Enterprise Knowledge Platform */}
-                <span
-                  className="inline-flex items-center gap-2 rounded-[20px] border hover:border-[#F59E0B]/40 hover:bg-white/[0.1] text-white text-[14px] font-semibold whitespace-normal md:whitespace-nowrap transition-all duration-200 w-full md:w-auto justify-center text-center"
-                  style={{
-                    padding: '10px 18px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                    borderColor: 'rgba(255, 255, 255, 0.12)'
-                  }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B] shadow-[0_0_8px_#F59E0B] shrink-0 animate-pulse" />
-                  <span className="font-bold text-white">Enterprise Knowledge Platform</span>
-                  <span className="text-[12.5px] text-[#FCD34D] font-normal italic ml-0.5">· Building from scratch</span>
-                </span>
-
-                {/* IITM BS Data Science Track */}
-                <a
-                  href="#education"
-                  className="inline-flex items-center gap-2 rounded-[20px] border hover:border-[#A78BFA]/40 hover:bg-white/[0.1] text-white text-[14px] font-semibold whitespace-normal md:whitespace-nowrap hover:scale-105 transition-all duration-200 w-full md:w-auto justify-center text-center"
-                  style={{
-                    padding: '10px 18px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                    borderColor: 'rgba(255, 255, 255, 0.12)'
-                  }}
-                  title="Scroll to Academic Journey"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA] shadow-[0_0_8px_#A78BFA] shrink-0" />
-                  <span className="font-bold text-white">IITM BS Data Science Track</span>
-                  <span className="text-[12.5px] text-[#C4B5FD] font-normal italic ml-0.5">· Ongoing</span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -420,7 +359,7 @@ const Hero = () => {
                   <span className="px-2 text-xs font-mono w-12 text-center">{Math.round(zoomLevel * 100)}%</span>
                   <button onClick={handleZoomIn} className="p-1.5 hover:bg-white/10 rounded-md transition-colors" title="Zoom In"><ZoomIn size={18} /></button>
                 </div>
-                <a href="/S_Shriram_Resume.pdf" download="S_Shriram_Resume.pdf" className="btn-primary py-1.5 px-3 text-sm flex items-center gap-2 h-9">
+                <a href="/resume.pdf" download="S_Shriram_Resume.pdf" className="btn-primary py-1.5 px-3 text-sm flex items-center gap-2 h-9">
                   <Download size={16} /> <span className="hidden sm:inline">Download PDF</span>
                 </a>
                 <button onClick={() => setShowResume(false)} className="p-1.5 hover:bg-white/10 rounded-full transition-colors text-white/70 hover:text-white"><X size={24} /></button>

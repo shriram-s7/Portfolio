@@ -25,3 +25,13 @@ dist-ssr
 
 .vercel
 .env*.local
+
+# Secrets, local env, Vercel link, archives
+.env
+.env.local
+.env.*.local
+.vercel/
+*.zip
+
+# Local audit screenshots
+screenshots-*/

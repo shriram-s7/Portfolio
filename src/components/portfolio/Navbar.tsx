@@ -7,6 +7,7 @@ const navLinks = [
   { name: 'Projects', href: '#projects' },
   { name: 'Hackathons', href: '#hackathon' },
   { name: 'Achievements', href: '#achievements' },
+  { name: 'Certifications', href: '#certifications' },
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -47,7 +48,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -82,7 +83,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-foreground"
+          aria-label="Toggle menu" className="lg:hidden p-2 text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -91,7 +92,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-card mt-2 mx-4 rounded-xl p-4 animate-scale-in">
+        <div className="lg:hidden glass-card mt-2 mx-4 rounded-xl p-4 animate-scale-in">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a

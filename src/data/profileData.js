@@ -4,8 +4,9 @@ export const profileData = {
     summary: "Building scalable Full Stack, AI/ML and Data-Driven applications focused on solving real-world engineering problems.",
     location: "Chennai, India",
     email: "shriram0981234@gmail.com",
-    github: "https://github.com/shriram-s8",
-    linkedin: "https://www.linkedin.com/in/shriram-s-546a2935a/",
+    github: "https://github.com/shriram-s7",
+    leetcode: "https://leetcode.com/u/Shriram_z",
+    linkedin: "https://linkedin.com/in/shriram-s-546a2935a",
     focusAreas: [
         "Full Stack Development",
         "Data Science",

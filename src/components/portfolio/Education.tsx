@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef, MouseEvent } from 'react';
-import { GraduationCap, Calendar, Star, BookOpen, Award, X, MapPin, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { GraduationCap, Calendar, Star, BookOpen, Award, X, MapPin, CheckCircle2, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { certBySlug } from '@/lib/content';
+import { ProofRow } from './Proof';
+import { LiftCard, ScrollHint } from './shared';
 
 interface EducationItem {
   id: number;
@@ -13,6 +16,7 @@ interface EducationItem {
   color: string;
   logo?: string;
   glow: string;
+  certSlug?: string;
 }
 
 const educationData: EducationItem[] = [
@@ -39,7 +43,7 @@ const educationData: EducationItem[] = [
     degree: 'Diploma in Data Science',
     institution: 'IIT Madras (BS Degree)',
     year: 'Ongoing',
-    score: 'Current CGPA: 7.59',
+    score: 'Current CGPA: 7.52',
     description: 'Advanced curriculum covering Machine Learning, Statistics, Data Visualization, and real-world AI/ML applications.',
     details: [
       "Core Courses: Machine Learning Foundations (MLF), Machine Learning Techniques (MLT), Tools in Data Science (TDS), and Business Data Management (BDM).",
@@ -57,7 +61,8 @@ const educationData: EducationItem[] = [
     degree: 'Diploma in Programming',
     institution: 'IIT Madras (BS Degree)',
     year: 'Completed',
-    score: 'CGPA: 7.59',
+    score: 'Verified completion',
+    certSlug: 'iitm-bs-diploma-programming',
     description: 'Rigorous curriculum covering DSA, Java, and Database Management.',
     details: [
       "Completed: Modern Application Development I (Project: MAD I App), Programming, Data Structures and Algorithms using Python, Database Management Systems, Programming Concepts using Java.",
@@ -75,7 +80,8 @@ const educationData: EducationItem[] = [
     degree: 'Foundation in Data Science',
     institution: 'IIT Madras (BS Degree)',
     year: 'Completed',
-    score: 'CGPA: 7.63',
+    score: 'Verified completion',
+    certSlug: 'iitm-bs-foundation',
     description: 'Gained strong fundamentals in Mathematics, Statistics, and Python.',
     details: [
       "Mastered Computational Thinking and Mathematics for Data Science.",
@@ -126,50 +132,12 @@ const educationData: EducationItem[] = [
   },
 ];
 
-// --- 3D TILT CARD ---
-const TiltCard = ({ children, className, onClick }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const [style, setStyle] = useState({
-    transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateY(0)",
-    transition: "transform 0.4s ease-out"
-  });
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-
-    const x = (e.clientX - left - width / 2) / 20;
-    const y = (e.clientY - top - height / 2) / 20;
-
-    setStyle({
-      transform: `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.05) translateY(-12px)`,
-      transition: "none"
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setStyle({
-      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateY(0)",
-      transition: "transform 0.5s ease-out"
-    });
-  };
-
-  return (
-    <div
-      ref={ref}
-      onClick={onClick}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`group relative rounded-xl border border-[#334155] bg-[#1E293B] 
-        hover:bg-[#1E293B] hover:z-30
-        cursor-pointer ${className}`}
-      style={style}
-    >
-      {children}
-    </div>
-  );
-};
+// Lift-on-hover card (no tilt / 3D rotation)
+const TiltCard = ({ children, className, onClick }: any) => (
+  <LiftCard cue onClick={onClick} className={`!bg-[#1E293B] !border-[#334155] ${className}`}>
+    {children}
+  </LiftCard>
+);
 
 const Education = () => {
   const [selectedEdu, setSelectedEdu] = useState<EducationItem | null>(null);
@@ -314,7 +282,18 @@ const Education = () => {
               </div>
             </div>
 
-            <div className="p-6 md:p-8 overflow-y-auto">
+            <ScrollHint outerClassName="min-h-0 flex-1" className="p-6 md:p-8">
+              {selectedEdu.certSlug && certBySlug(selectedEdu.certSlug) && (
+                <div className="mb-8 p-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5">
+                  <h4 className="text-sm font-semibold text-white mb-1 flex items-center gap-2">
+                    <ShieldCheck size={16} className="text-emerald-400" /> Verify this
+                  </h4>
+                  <p className="text-xs text-gray-400 mb-3">
+                    {certBySlug(selectedEdu.certSlug)!.kind} dated {certBySlug(selectedEdu.certSlug)!.date}. Document ID {certBySlug(selectedEdu.certSlug)!.credentialId}.
+                  </p>
+                  <ProofRow item={certBySlug(selectedEdu.certSlug)!} />
+                </div>
+              )}
               <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <BookOpen size={18} className="text-primary" />
                 Key Highlights
@@ -327,7 +306,7 @@ const Education = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </ScrollHint>
 
           </div>
         </div>
