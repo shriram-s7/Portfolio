@@ -1,139 +1,107 @@
-import { profileData } from '../data/profileData.js';
-import { projectsData } from '../data/projectsData.js';
-import { hackathonsData } from '../data/hackathonsData.js';
-import { achievements, certifications } from '../data/achievementsData.js';
-import { skillsData } from '../data/skillsData.js';
+// Knowledge base for /api/chat. Built ONLY from the current JSON data files, so the assistant
+// can never disagree with what the site shows. Runs server-side (api/chat.js).
+import profile from '../data/profile.json' with { type: 'json' };
+import education from '../data/education.json' with { type: 'json' };
+import skills from '../data/skills.json' with { type: 'json' };
+import certifications from '../data/certifications.json' with { type: 'json' };
+import wins from '../data/wins.json' with { type: 'json' };
+import projects from '../data/projects.json' with { type: 'json' };
 
-// Helper to clean and tokenize text with normalization (Part 1 - Normalize Tokenization)
-const tokenize = (text) => {
-    if (!text) return [];
-    return text
-        .toLowerCase()
-        .replace(/[^\w\s]/g, '') // Remove punctuation
-        .split(/\s+/)
-        .filter(word => word.length > 2) // Remove short words
-        .map(word => {
-            // Simple normalization for plurals and suffixes
-            if (word.endsWith('ies')) return word.slice(0, -3) + 'y';
-            if (word.endsWith('es')) return word.slice(0, -2);
-            if (word.endsWith('ing')) return word.slice(0, -3);
-            if (word.endsWith('ed')) return word.slice(0, -2);
-            if (word.endsWith('s') && !word.endsWith('ss')) return word.slice(0, -1);
-            return word;
-        });
-};
-
-// Helper to remove duplicates
-const unique = (arr) => [...new Set(arr)];
+const list = (a) => (a && a.length ? a.join('; ') : '');
+const line = (label, v) => (v ? `${label}: ${v}` : '');
+const join = (...parts) => parts.filter(Boolean).join('\n');
 
 export const buildPortfolioKnowledge = () => {
-    const knowledgeBase = [];
+    const kb = [];
 
-    // 1. Profile Knowledge
-    knowledgeBase.push({
-        id: 'profile',
-        type: 'profile',
-        title: 'Profile Summary',
-        content: `${profileData.name} is a ${profileData.role} based in ${profileData.location}. ${profileData.summary}`,
-        keywords: unique([
-            ...tokenize(profileData.role),
-            ...tokenize(profileData.summary),
-            "profile", "about", "bio", "resume", "summary"
-        ]),
-        raw: profileData
+    // Profile
+    kb.push({
+        id: 'profile', type: 'profile', title: `${profile.name} (profile)`,
+        content: join(
+            line('Name', profile.name),
+            line('Summary', profile.tagline),
+            line('Location', profile.location),
+            line('Email', profile.email),
+            line('GitHub', profile.links?.github),
+            line('LinkedIn', profile.links?.linkedin),
+            line('LeetCode', profile.links?.leetcode),
+            ...(profile.skills || []).map((g) => `${g.group}: ${list(g.items)}`),
+        ),
     });
 
-    // 2. Education
-    profileData.education.forEach((edu, index) => {
-        knowledgeBase.push({
-            id: `education-${index}`,
-            type: 'education',
-            title: edu.institution,
-            content: `Studied ${edu.degree} at ${edu.institution} (${edu.year}).`,
-            keywords: unique([
-                ...tokenize(edu.institution),
-                ...tokenize(edu.degree),
-                "education", "college", "degree", "study"
-            ]),
-            raw: edu
+    // Education
+    const { eec, iitm, school } = education;
+    kb.push({
+        id: 'education', type: 'education', title: 'Education',
+        content: join(
+            `${eec.degree} at ${eec.institution}, ${eec.years}, CGPA ${eec.cgpa}.`,
+            `${iitm.degree} at ${iitm.institution}, ${iitm.years}, CGPA ${iitm.cgpa}.`,
+            `IIT Madras BS levels: ${(iitm.levels || []).map((l) => `${l.label} (${l.status})`).join(', ')}.`,
+            school,
+        ),
+    });
+
+    // Projects (id = slug)
+    projects.forEach((p) => {
+        kb.push({
+            id: p.slug, type: 'project', title: `${p.name} [project id: ${p.slug}]${p.featured ? ' (featured)' : ''}`,
+            content: join(
+                line('Tagline', p.tagline),
+                line('Problem', p.problem),
+                line('How it works', list(p.built)),
+                line('Stack', list(p.stack)),
+                line('Result', p.result),
+                line('Status', p.status),
+                line('Context', p.context),
+                line('Event', p.event),
+                line('GitHub', p.github),
+                line('Live app', p.live),
+                line('Demo video', p.video),
+            ),
         });
     });
 
-    // 3. Projects
-    projectsData.forEach(project => {
-        const featureText = project.features ? project.features.join(" ") : "";
-        const techText = project.tech ? project.tech.join(" ") : "";
-
-        knowledgeBase.push({
-            id: `project-${project.id}`,
-            type: 'project',
-            title: project.title,
-            content: `${project.title}: ${project.description}. Technologies used: ${techText}. Key features: ${featureText}`,
-            keywords: unique([
-                ...tokenize(project.title),
-                ...tokenize(project.description),
-                ...tokenize(featureText),
-                ...project.tech.map(t => t.toLowerCase()),
-                "project", "work", "portfolio"
-            ]),
-            raw: project
+    // Wins (hackathons and competitions)
+    wins.forEach((w) => {
+        const proj = w.projectSlug ? projects.find((p) => p.slug === w.projectSlug) : null;
+        kb.push({
+            id: w.slug, type: 'win', title: `${w.title} (${w.rank || 'participation'})`,
+            content: join(
+                line('Result', [w.rank, w.rankNote].filter(Boolean).join(': ')),
+                line('Event', w.event),
+                line('Organiser', w.issuer),
+                line('Date', w.date),
+                line('Prize', w.prize),
+                line('Team', w.team),
+                line('Format', w.format),
+                line('Category', w.category),
+                line('Project', proj ? `${proj.name} [project id: ${proj.slug}]` : ''),
+                line('Story', w.story),
+            ),
         });
     });
 
-    // 4. Hackathons
-    hackathonsData.forEach(hack => {
-        const techText = hack.technologies ? hack.technologies.join(" ") : "";
-
-        knowledgeBase.push({
-            id: `hackathon-${hack.id}`,
-            type: 'hackathon',
-            title: hack.title,
-            content: `Won ${hack.achievement} at ${hack.title} (${hack.theme}). Project: ${hack.solutionName}. ${hack.description}`,
-            keywords: unique([
-                ...tokenize(hack.title),
-                ...tokenize(hack.theme),
-                ...tokenize(hack.achievement),
-                ...tokenize(hack.solutionName),
-                ...tokenize(hack.description),
-                "hackathon", "winner", "achievement", "competition"
-            ]),
-            raw: hack
+    // Certifications
+    certifications.forEach((c) => {
+        kb.push({
+            id: c.slug, type: 'certification', title: c.title,
+            content: join(
+                line('Issuer', c.issuer),
+                line('Date', c.date),
+                line('Valid until', c.expires),
+                line('Grade/score', [c.grade, c.score].filter(Boolean).join(' ')),
+                line('Credential ID', c.credentialId),
+                line('Verify', c.verifyUrl || c.credlyUrl),
+            ),
         });
     });
 
-    // 5. Achievements & Certifications
-    [...achievements, ...certifications].forEach((item, index) => {
-        knowledgeBase.push({
-            id: `achievement-${index}`,
-            type: 'achievement',
-            title: item.title,
-            content: `${item.title} by ${item.organization || item.issuer}. Result/Score: ${item.result || item.score}.`,
-            keywords: unique([
-                ...tokenize(item.title),
-                ...tokenize(item.organization || item.issuer),
-                "achievement", "certification", "award", "certificate"
-            ]),
-            raw: item
-        });
+    // Skills
+    const byCat = {};
+    skills.forEach((s) => { (byCat[s.category] ||= []).push(`${s.name} (${s.level}, used in ${s.projectCount} projects)`); });
+    Object.entries(byCat).forEach(([cat, items]) => {
+        kb.push({ id: `skills-${cat}`, type: 'skill', title: `Skills: ${cat}`, content: items.join('; ') });
     });
 
-    // 6. Skills
-    skillsData.forEach(cat => {
-        cat.skills.forEach(skill => {
-            knowledgeBase.push({
-                id: `skill-${skill.name}`,
-                type: 'skill',
-                title: skill.name,
-                content: `Skilled in ${skill.name} (${cat.title}). Proficiency level: ${skill.level}%.`,
-                keywords: unique([
-                    ...tokenize(skill.name),
-                    ...tokenize(cat.title),
-                    "skill", "tech", "stack"
-                ]),
-                raw: skill
-            });
-        })
-    });
-
-    return knowledgeBase;
+    return kb;
 };

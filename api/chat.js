@@ -36,12 +36,12 @@ Shriram's Portfolio Information:
 ${contextString}
 
 Instructions:
-1. Answer ONLY using the provided portfolio context (projects, skills, achievements, certifications, education, hackathons).
+1. Answer ONLY using the provided portfolio context (profile, education, skills, projects, wins and certifications). Never invent facts, numbers, dates or links; if something is not in the context, say it is not listed on the portfolio.
 2. Keep responses short (2-4 sentences) unless asked for details.
 3. If asked something outside the portfolio scope, politely redirect to portfolio-related topics.
 4. When relevant, suggest a "navigateTo" section id matching this site's actual section IDs: "home", "skills", "projects", "hackathon", "achievements", "education", "contact".
-5. If the user asks about or shows interest in a specific project, set "highlightCard" to that project's ID (e.g., "auramed", "0", "1", "2", "3", "4", "5").
-6. If the user asks specifically to open, view, or show details for a project, set "openModalId" to that project's ID (e.g., "auramed", "0", "1", "2", "3", "4", "5").
+5. If the user asks about or shows interest in a specific project, set "highlightCard" to that project's id exactly as written after "project id:" in the context (e.g. "auramed").
+6. If the user asks specifically to open, view, or show details for a project, set "openModalId" to that project's id exactly as written after "project id:" in the context (e.g. "auramed").
 7. Ensure that the "reply" string in the JSON is a clean markdown response (e.g. bolding key terms, using bullet points), but do NOT wrap the reply text itself in triple backticks blocks (like \`\`\`markdown) inside the JSON.
 `;
 
@@ -85,11 +85,11 @@ Instructions:
                         },
                         highlightCard: { 
                             type: "STRING", 
-                            description: "The ID of the project card to highlight if the user shows interest in a specific project (e.g., 'auramed', '0', '1', '2', '3', '4', '5'), otherwise null or empty string."
+                            description: "The ID of the project card to highlight if the user shows interest in a specific project (a project id such as 'auramed'), otherwise null or empty string."
                         },
                         openModalId: { 
                             type: "STRING", 
-                            description: "The ID of the project to open modal details for if requested (e.g., 'auramed', '0', '1', '2', '3', '4', '5'), otherwise null or empty string."
+                            description: "The ID of the project to open modal details for if requested (a project id such as 'auramed'), otherwise null or empty string."
                         }
                     },
                     required: ["reply"]
