@@ -1,0 +1,20 @@
+{
+  "eec": {
+    "institution": "Easwari Engineering College, Chennai",
+    "degree": "B.E. Computer Science and Engineering",
+    "years": "2024 – 2028",
+    "cgpa": "8.87"
+  },
+  "iitm": {
+    "institution": "Indian Institute of Technology Madras (online, parallel degree)",
+    "degree": "BS in Data Science and Applications",
+    "years": "2024 – 2028",
+    "cgpa": "7.52",
+    "levels": [
+      { "label": "Foundation", "status": "done", "certSlug": "iitm-bs-foundation" },
+      { "label": "Diploma in Programming", "status": "done", "certSlug": "iitm-bs-diploma-programming" },
+      { "label": "Diploma in Data Science", "status": "in-progress" }
+    ]
+  },
+  "school": "CBSE Class X school topper (97.4%) · Class XII school rank 3 (95.8%)"
+}

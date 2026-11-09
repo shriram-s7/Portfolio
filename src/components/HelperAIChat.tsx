@@ -4,6 +4,9 @@ import { Input } from './ui/input';
 import { ScrollArea } from './ui/scroll-area';
 import { MessageCircle, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ENABLE_CHAT } from '@/config';
+
+const OFFLINE = 'Assistant is offline right now.';
 
 interface Message {
     role: 'user' | 'assistant';
@@ -34,7 +37,7 @@ const HelperAIChat = () => {
     }, []);
 
     const handleSend = async () => {
-        if (!input.trim() || isLoading) return;
+        if (!ENABLE_CHAT || !input.trim() || isLoading) return;
 
         const userMessage = input.trim();
         setInput('');
@@ -90,13 +93,10 @@ const HelperAIChat = () => {
                 }
 
             } else {
-                const errorMessage = data?.message || data?.error || "Sorry, I'm having trouble connecting right now. Please try again later.";
-                setMessages(prev => [...prev, { role: 'assistant', content: `Chat Error: ${errorMessage}` }]);
+                setMessages(prev => [...prev, { role: 'assistant', content: OFFLINE }]);
             }
         } catch (error) {
-            console.error('Chat Error:', error);
-            const errMsg = error instanceof Error ? error.message : String(error);
-            setMessages(prev => [...prev, { role: 'assistant', content: `Network error: ${errMsg}` }]);
+            setMessages(prev => [...prev, { role: 'assistant', content: OFFLINE }]);
         } finally {
             setIsLoading(false);
         }
@@ -108,6 +108,8 @@ const HelperAIChat = () => {
             handleSend();
         }
     };
+
+    if (!ENABLE_CHAT) return null;
 
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4 pointer-events-none">

@@ -1,4 +1,5 @@
-import { Mail, Phone, Linkedin, Github, Download, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Download, MapPin, Code2, BadgeCheck } from 'lucide-react';
+import profile from '@/data/profile.json';
 
 const contactInfo = [
   {
@@ -25,18 +26,23 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/shriram-s-546a2935a',
+    href: profile.links.linkedin,
   },
   {
     icon: Github,
     label: 'GitHub',
-    href: 'https://github.com/shriram-s8',
+    href: profile.links.github,
+  },
+  {
+    icon: Code2,
+    label: 'LeetCode',
+    href: profile.links.leetcode,
   },
 ];
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-10 relative">
+    <section id="contact" className="py-10 relative overflow-hidden">
       <div className="glow-effect w-[500px] h-[500px] bg-primary bottom-0 right-0 animate-pulse-glow" />
       <div className="glow-effect w-[400px] h-[400px] bg-secondary top-0 left-0 animate-pulse-glow animation-delay-300" />
       
@@ -113,7 +119,7 @@ const Contact = () => {
                   <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                     {/* Real Download Button */}
                     <a 
-                      href="/S_Shriram_Resume.pdf" 
+                      href="/resume.pdf" 
                       download="S_Shriram_Resume.pdf"
                       className="btn-primary"
                     >
@@ -126,6 +132,15 @@ const Contact = () => {
                     >
                       <Mail size={18} />
                       Send Email
+                    </a>
+                  </div>
+                  <div className="mt-4 flex justify-center md:justify-start">
+                    <a
+                      href="/verify/"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-900/30 transition-colors duration-300"
+                    >
+                      <BadgeCheck size={16} />
+                      Verify Credentials
                     </a>
                   </div>
                 </div>

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -422,4 +421,162 @@
 
 .animate-pulse-dot {
   animation: pulse-dot 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+/* ===================================================================
+   Round 2: lift cards (no tilt), "+N more" boxes, skill orbits.
+   Transform/opacity animations only. All motion is disabled under
+   prefers-reduced-motion.
+   =================================================================== */
+.lift-card {
+  --glow: rgba(34, 211, 238, 0.4);
+  --tint: rgba(34, 211, 238, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.lift-card:hover,
+.lift-card:focus-visible {
+  transform: translateY(-4px) scale(1.012);
+  background-color: var(--tint);
+  border-color: var(--glow);
+  box-shadow: 0 14px 40px -14px var(--glow);
+}
+.lift-card:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+
+/* "+N more" box: same footprint as a card, previews fan out on hover */
+.more-box .stack-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 74%;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform: translate(-50%, -50%) translateY(calc(var(--i) * 16px)) scale(calc(1 - var(--i) * 0.07));
+  z-index: calc(3 - var(--i));
+  filter: brightness(calc(1 - var(--i) * 0.22));
+}
+.more-box:hover .stack-card,
+.more-box:focus-visible .stack-card {
+  transform: translate(-50%, -50%) translateX(calc((var(--i) - 1) * 46%)) translateY(calc(var(--i) * 4px)) rotate(calc((var(--i) - 1) * 5deg)) scale(0.9);
+  filter: none;
+}
+.more-box .more-count { animation: more-pulse 2.8s ease-in-out infinite; }
+@keyframes more-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+/* orbit rings */
+@keyframes orbit-cw { to { transform: rotate(360deg); } }
+@keyframes orbit-ccw { to { transform: rotate(-360deg); } }
+.orbit-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px dashed rgba(148, 163, 184, 0.2);
+  animation: orbit-cw var(--dur, 60s) linear infinite;
+  pointer-events: none; /* rings overlap each other; only the logos take the mouse */
+}
+.orbit-ring.rev { animation-name: orbit-ccw; }
+.orbit-item { position: absolute; transform: translate(-50%, -50%); }
+.orbit-item button { pointer-events: auto; }
+.orbit-counter { animation: orbit-ccw var(--dur, 60s) linear infinite; }
+.orbit-ring.rev .orbit-counter { animation-name: orbit-cw; }
+.orbit-paused .orbit-ring,
+.orbit-paused .orbit-counter { animation-play-state: paused; }
+
+/* mobile skill rows */
+@keyframes slide-x { to { transform: translateX(-50%); } }
+.skill-row { display: flex; width: max-content; gap: 0.5rem; animation: slide-x var(--dur, 40s) linear infinite; }
+.skill-row.rev { animation-direction: reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lift-card:hover, .lift-card:focus-visible { transform: none; }
+  .more-box .stack-card, .more-box:hover .stack-card { transition: none; }
+  .more-box .more-count, .orbit-ring, .orbit-counter, .skill-row { animation: none !important; }
+}
+
+/* ===================================================================
+   Round 3: win cards. Conic animated border, shimmer, sparkle burst.
+   CSS only; everything stops under prefers-reduced-motion.
+   =================================================================== */
+@property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes win-spin { to { --ang: 360deg; } }
+@keyframes win-shine { from { transform: translateX(0) skewX(-20deg); } to { transform: translateX(520%) skewX(-20deg); } }
+@keyframes win-spark {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.1); }
+}
+.win-gold { --c1: #facc15; --c2: #f59e0b; --tint: rgba(250, 204, 21, 0.10); }
+.win-silver { --c1: #e2e8f0; --c2: #60a5fa; --tint: rgba(148, 163, 184, 0.12); }
+.win-bronze { --c1: #fb923c; --c2: #b45309; --tint: rgba(251, 146, 60, 0.10); }
+.win-theme { --c1: #22d3ee; --c2: #a855f7; --tint: rgba(34, 211, 238, 0.08); }
+.win-card {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  background: conic-gradient(from var(--ang), var(--c1), var(--c2), var(--c1));
+  animation: win-spin 7s linear infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.win-card:hover, .win-card:focus-visible {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: 0 16px 48px -12px var(--c1);
+}
+.win-card:focus-visible { outline: 2px solid var(--c1); outline-offset: 3px; }
+.win-inner {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: calc(1rem - 2px);
+  background: linear-gradient(160deg, var(--tint), rgba(0, 0, 0, 0) 55%), #0b1220;
+}
+.win-shine { position: absolute; inset: 2px; overflow: hidden; border-radius: calc(1rem - 2px); pointer-events: none; }
+.win-shine::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -45%; width: 38%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-20deg);
+}
+.win-card:hover .win-shine::before { animation: win-shine 0.9s ease-out 1; }
+.win-spark {
+  position: absolute; left: 34px; top: 34px; width: 7px; height: 7px; border-radius: 9999px;
+  background: var(--c1); box-shadow: 0 0 8px var(--c1); opacity: 0; pointer-events: none;
+}
+.win-card:hover .win-spark { animation: win-spark 0.75s ease-out 1 both; }
+@media (prefers-reduced-motion: reduce) {
+  .win-card { animation: none; }
+  .win-card:hover, .win-card:focus-visible { transform: none; }
+  .win-card:hover .win-shine::before, .win-card:hover .win-spark { animation: none; }
+}
+
+/* ===== Toolbox marquee: two rows, transform-only, seamless (track is duplicated) ===== */
+@keyframes marquee-x { to { transform: translateX(-50%); } }
+.marquee {
+  overflow: hidden;
+  padding: 2.4rem 0 0.6rem; /* room above the chips so tooltips are never clipped */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+}
+.marquee-track { display: flex; width: max-content; animation: marquee-x var(--dur, 40s) linear infinite; will-change: transform; }
+.marquee-track.rev { animation-direction: reverse; }
+.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { animation: none; }
+}
+
+
+/* ===================================================================
+   Affordance cues: scroll hints, clickable-card arrow, link tiles
+   =================================================================== */
+@keyframes cue-bounce { 0%, 100% { transform: translateY(-1px); } 50% { transform: translateY(4px); } }
+.cue-bounce { animation: cue-bounce 1.3s ease-in-out infinite; }
+
+.card-cue { transition: transform 0.2s ease, background-color 0.2s ease; }
+.lift-card:hover .card-cue, .lift-card:focus-visible .card-cue { transform: translate(2px, -2px) scale(1.12); background-color: rgb(34 211 238 / 0.45); }
+
+@keyframes link-ring {
+  0% { box-shadow: 0 0 0 0 var(--ring); }
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.link-tile { animation: link-ring 2.4s ease-out infinite; transition: transform 0.2s ease, background-color 0.2s ease; }
+.link-tile:hover, .link-tile:focus-visible { transform: translateY(-2px); animation: none; box-shadow: 0 8px 24px -8px var(--ring); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cue-bounce, .link-tile { animation: none !important; }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "S Shriram",
+  "tagline": "CSE @ Easwari Engineering College · BS Data Science @ IIT Madras · I build AI and full-stack systems.",
+  "email": "shriram0981234@gmail.com",
+  "phone": "+91 9345598380",
+  "location": "Chennai, India",
+  "links": {
+    "resume": "/resume.pdf",
+    "github": "https://github.com/shriram-s7",
+    "linkedin": "https://linkedin.com/in/shriram-s-546a2935a",
+    "leetcode": "https://leetcode.com/u/Shriram_z"
+  },
+  "skills": [
+    { "group": "Languages", "items": ["Python", "Java", "C", "SQL", "JavaScript", "TypeScript"] },
+    { "group": "AI / ML", "items": ["PyTorch", "timm", "OpenCV", "CNNs", "Vision Transformers", "Grad-CAM", "NLP", "RAG"] },
+    { "group": "Web & Backend", "items": ["FastAPI", "Flask", "React", "Vite", "Tailwind", "NestJS", "REST APIs"] },
+    { "group": "Data & Cloud", "items": ["PostgreSQL", "SQLite", "MySQL", "MongoDB", "AWS (EC2, API Gateway, Amplify)"] },
+    { "group": "Tools", "items": ["Git", "GitHub", "Electron", "Claude Code (AI-assisted development)"] }
+  ]
+}

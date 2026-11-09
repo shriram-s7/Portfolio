@@ -1,0 +1,729 @@
+[
+  {
+    "slug": "auramed",
+    "name": "AuraMed",
+    "tagline": "Women's-health screening platform with a doctor sign-off workflow",
+    "tags": [
+      "ai-ml",
+      "fullstack"
+    ],
+    "featured": 1,
+    "problem": "Early screening for breast cancer, cervical cytology and PCOS, with a clinician in the loop instead of a bare prediction screen.",
+    "built": [
+      "Three PyTorch image models (ResNet-50 and ViT-B/16) with Grad-CAM heatmaps: 95% accuracy on PCOS (3,800+ ultrasound images) and 93.13% on cervical cytology.",
+      "Image output fused with clinical scoring (Gail model, Rotterdam criteria) into an explained risk score.",
+      "Admin, doctor and patient portals with a sign, lock, addendum and release report workflow."
+    ],
+    "stack": [
+      "React",
+      "FastAPI",
+      "PyTorch",
+      "timm",
+      "PostgreSQL"
+    ],
+    "result": "2nd Place, AI Ascend 2026 (₹25,000)",
+    "status": "Research prototype, not clinically validated",
+    "github": "https://github.com/shriram-s7/auramed",
+    "live": "https://auramed-theta.vercel.app",
+    "video": "https://youtu.be/Dbne7Zs1pR8",
+    "release": "https://github.com/shriram-s7/auramed/releases/tag/v1.0.0",
+    "releaseLabel": "Model weights",
+    "event": "AI Ascend 2026 (2nd Place)",
+    "created": "2026-09-29",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": [
+      "Three PyTorch image models (ResNet-50 and ViT-B/16) with Grad-CAM heatmaps: 95% accuracy on PCOS (3,800+ ultrasound images) and 93.13% on cervical cytology.",
+      "Image output fused with clinical scoring (Gail model, Rotterdam criteria) into an explained risk score.",
+      "Admin, doctor and patient portals with a sign, lock, addendum and release report workflow."
+    ]
+  },
+  {
+    "slug": "hash-patch",
+    "name": "Hash Patch",
+    "tagline": "Offline post-quantum crypto scanner and CBOM generator",
+    "tags": [
+      "security"
+    ],
+    "featured": 2,
+    "problem": "Organisations cannot tell which of their cryptography is actually used, or what to migrate to post-quantum algorithms first.",
+    "built": [
+      "Tree-sitter parsing of Java, Python, Go and C, with call-graph reachability to separate crypto that runs from dead or test code.",
+      "Signed CycloneDX 1.6 Crypto Bill of Materials plus a migration plan to ML-KEM and ML-DSA, prioritised with Mosca's theorem.",
+      "Packaged as an air-gapped Electron desktop app for Windows."
+    ],
+    "stack": [
+      "Python",
+      "Tree-sitter",
+      "CycloneDX",
+      "React",
+      "Electron"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/hash_patch",
+    "live": "",
+    "video": "https://youtu.be/5Hb2-dnYOR8",
+    "release": "https://github.com/shriram-s7/hash_patch/releases/tag/v0.1.0",
+    "releaseLabel": "Installer",
+    "event": "",
+    "created": "2026-09-01",
+    "updated": "2026-11-08",
+    "context": "Built for NTRO problem statement 26164",
+    "challenges": [
+      "Tree-sitter parsing of Java, Python, Go and C, with call-graph reachability to separate crypto that runs from dead or test code.",
+      "Signed CycloneDX 1.6 Crypto Bill of Materials plus a migration plan to ML-KEM and ML-DSA, prioritised with Mosca's theorem.",
+      "Packaged as an air-gapped Electron desktop app for Windows."
+    ]
+  },
+  {
+    "slug": "fsoc-pat",
+    "name": "FSOC-PAT",
+    "tagline": "AI beacon tracking simulator for optical communication terminals",
+    "tags": [
+      "ai-ml"
+    ],
+    "featured": 3,
+    "problem": "Free-space optical terminals must be coarsely aligned on a moving beacon before a laser link can lock.",
+    "built": [
+      "Simulator that detects a moving beacon with classical CV, a PyTorch CNN, or a hybrid of both, tracked by Kalman/IMM filters and a PID camera servo.",
+      "All three modes benchmarked on identical trajectories and seeded disturbances, with CSV and PDF reports and measured pass/fail requirement checks.",
+      "Packaged as a Windows desktop app."
+    ],
+    "stack": [
+      "Python",
+      "PyTorch",
+      "OpenCV",
+      "FastAPI",
+      "Electron"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/FSOC",
+    "live": "",
+    "video": "https://youtu.be/t4KiQGwrneo",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-09-30",
+    "updated": "2026-11-08",
+    "context": "Built for ISRO problem statement 26169",
+    "challenges": [
+      "Simulator that detects a moving beacon with classical CV, a PyTorch CNN, or a hybrid of both, tracked by Kalman/IMM filters and a PID camera servo.",
+      "All three modes benchmarked on identical trajectories and seeded disturbances, with CSV and PDF reports and measured pass/fail requirement checks.",
+      "Packaged as a Windows desktop app."
+    ]
+  },
+  {
+    "slug": "optiflow",
+    "name": "OptiFlow",
+    "tagline": "Dynamic route optimization for deadline-bound truck fleets",
+    "tags": [
+      "logistics",
+      "fullstack"
+    ],
+    "featured": 4,
+    "problem": "A depot fleet must serve hubs inside delivery deadlines, and re-plan when traffic, rain or road blocks change the picture.",
+    "built": [
+      "Real-time fleet routing using geographic clustering, deadline-first insertion and 2-opt ordering, enforcing hub deadlines, a 7.5-hour driving limit and fuel capacity on real road networks.",
+      "Simulated traffic, rain and road-block events that trigger explained re-routing decisions.",
+      "Separate dispatcher and driver views. The logic is rule-based; there is no trained ML model."
+    ],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "MapLibre GL",
+      "OSRM"
+    ],
+    "result": "Winner, Transportation & Logistics theme, CMR Hackfest 3.0",
+    "status": "",
+    "github": "https://github.com/shriram-s7/DYNAMIC-ROUTE-OPTIMIZATION-SYSTEM",
+    "live": "",
+    "video": "https://youtu.be/uunL2gQFaAw",
+    "release": "",
+    "releaseLabel": "",
+    "event": "CMR Hackfest 3.0 (Theme Winner)",
+    "created": "2026-06-27",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": [
+      "Real-time fleet routing using geographic clustering, deadline-first insertion and 2-opt ordering, enforcing hub deadlines, a 7.5-hour driving limit and fuel capacity on real road networks.",
+      "Simulated traffic, rain and road-block events that trigger explained re-routing decisions.",
+      "Separate dispatcher and driver views. The logic is rule-based; there is no trained ML model."
+    ]
+  },
+  {
+    "slug": "pulse-echo",
+    "name": "PulseEcho",
+    "tagline": "Metro-to-bus transfer analysis from tap timing alone",
+    "tags": [
+      "data",
+      "logistics"
+    ],
+    "featured": 5,
+    "problem": "CUMTA problem statement 3, \"Discover the Hidden Connections\": where do Chennai Metro passengers switch to buses?",
+    "built": [
+      "Treats train arrivals as pulses and buses at nearby stops as echoes; the excess boardings give the transfer volume without any linked ticket data.",
+      "Estimates the share to each stop and route, typical waits, and suggestions such as retiming or enlarging buses or adding feeder routes."
+    ],
+    "stack": [
+      "Python",
+      "Node"
+    ],
+    "result": "1st Place, CUMTA Urban Mobility Challenge (₹15,000)",
+    "status": "",
+    "github": "https://github.com/shriram-s7/pulse-echo",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "CUMTA Urban Mobility Challenge (1st Place)",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": [
+      "Treats train arrivals as pulses and buses at nearby stops as echoes; the excess boardings give the transfer volume without any linked ticket data.",
+      "Estimates the share to each stop and route, typical waits, and suggestions such as retiming or enlarging buses or adding feeder routes."
+    ]
+  },
+  {
+    "slug": "neighborly",
+    "name": "Neighborly",
+    "tagline": "Hyperlocal services marketplace with escrow and a trust score",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Residents describe a need in plain words and get matched to nearby neighbours who can help.",
+    "built": [
+      "Free-text request parser and a 0-100 match score on six weighted factors, shown as \"Why this match?\".",
+      "Booking state machine with wallet escrow and a 5% fee; live chat with masked contact details."
+    ],
+    "stack": [
+      "React",
+      "NestJS",
+      "Prisma",
+      "PostgreSQL",
+      "Vercel",
+      "Render"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/neighborly",
+    "live": "https://neighborly-beige.vercel.app",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "EEC Full Stack Development project",
+    "created": "2026-10-15",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "cryptiq",
+    "name": "CryptIQ",
+    "tagline": "Scan, repair and verify security demo for a small business",
+    "tags": [
+      "security",
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Show a small shop the attack succeeding, apply the fix, then re-run the same attack to prove it now fails.",
+    "built": [
+      "Python AST scan for eight risk families, a bounded dictionary attack and a tiny-RSA factoring demo.",
+      "Four dependent fixes applied as one atomic migration (passwords move to Argon2id), then four checks gate PDF and CycloneDX exports."
+    ],
+    "stack": [
+      "React",
+      "FastAPI",
+      "SQLite",
+      "Argon2id",
+      "Playwright"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/cryptiq",
+    "live": "",
+    "video": "",
+    "release": "https://github.com/shriram-s7/cryptiq/releases/tag/v0.1.0-demo",
+    "releaseLabel": "Demo release",
+    "event": "Team Tech Squad",
+    "created": "2026-10-14",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "reclaim",
+    "name": "Reclaim",
+    "tagline": "Cyber-fraud report preparation in English and Tamil",
+    "tags": [
+      "security",
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Cyber-fraud victims struggle to prepare reporting documents and track report references.",
+    "built": [
+      "Evidence intake with optional AI reading of screenshots, conflict and duplicate detection, reminders, and PDF and JSON export."
+    ],
+    "stack": [
+      "FastAPI",
+      "SQLite",
+      "React"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/Reclaim",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "Founders' Code Hackathon '26",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "dairyflow",
+    "name": "DairyFlow + Allocra",
+    "tagline": "Chennai milk dispatch planner and control tower",
+    "tags": [
+      "logistics",
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Plan and simulate early-morning milk deliveries from one plant to 8 hubs with 6 trucks.",
+    "built": [
+      "Planner covering every hub with the fewest trucks then fewest kilometres, using real OSRM road routes.",
+      "Control tower that scores redirecting a truck against dispatching a reserve truck, with manager approval. Rule-based, not ML.",
+      "Allocra v2 adds JWT logins, booths and a product catalogue (in progress)."
+    ],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "React",
+      "MapLibre",
+      "OSRM"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/diary-flow",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-10-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "satquery",
+    "name": "SatQuery AI",
+    "tagline": "Natural-language Q&A over satellite images",
+    "tags": [
+      "ai-ml",
+      "data"
+    ],
+    "featured": 0,
+    "problem": "Ask plain-language questions about one or two GeoTIFF/PNG satellite images.",
+    "built": [
+      "Trust Gate that validates input and routes it, with answers returned as an overlay, coordinates, confidence and execution trace.",
+      "Geospatial handling (GeoTIFF, coordinate transforms, ground sample distance) is real; the vision model is still a stub."
+    ],
+    "stack": [
+      "FastAPI",
+      "rasterio",
+      "pyproj",
+      "React"
+    ],
+    "result": "",
+    "status": "Prototype",
+    "github": "https://github.com/shriram-s7/satquery",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "Smart India Hackathon 2026 (ISRO, PS 26167)",
+    "created": "2026-08-30",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "sylvasense",
+    "name": "SylvaSense",
+    "tagline": "Forest-monitoring UI prototype",
+    "tags": [
+      "fullstack",
+      "data"
+    ],
+    "featured": 0,
+    "problem": "Forest monitoring with satellite data fusion, tree counting, carbon estimates and deforestation alerts.",
+    "built": [
+      "Round-1 Next.js front end running on mock data, with a blueprint document and a recorded demo."
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript"
+    ],
+    "result": "",
+    "status": "UI prototype on mock data",
+    "github": "https://github.com/shriram-s7/SylvaSense",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "ORION problem statement 3",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "resume-ranker-ai",
+    "name": "Resume Ranker AI",
+    "tagline": "Six-stage pipeline ranking 100k candidates",
+    "tags": [
+      "ai-ml",
+      "data"
+    ],
+    "featured": 0,
+    "problem": "Pick the top 100 candidates for a Senior AI Engineer role from up to 100,000 profiles.",
+    "built": [
+      "BM25 retrieval, MiniLM embeddings, trust-weighted skill overlap, career-fit scoring, trap detection and MMR diversity re-ranking.",
+      "A generated reason for each pick and a validated submission.csv."
+    ],
+    "stack": [
+      "Python",
+      "BM25",
+      "MiniLM",
+      "MMR"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/Resume-Ranker-AI",
+    "live": "",
+    "video": "https://youtu.be/eIeOQ2dkHRQ",
+    "release": "",
+    "releaseLabel": "",
+    "event": "Redrob Hackathon (team The Elite)",
+    "created": "2026-06-24",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "aadhaar-pressure",
+    "name": "Aadhaar Pressure Update Intelligence",
+    "tagline": "Where Aadhaar update demand builds up",
+    "tags": [
+      "data"
+    ],
+    "featured": 0,
+    "problem": "Analyse the UIDAI dataset to find where Aadhaar update demand builds up.",
+    "built": [
+      "Python data-cleaning and analysis notebooks with generated outputs and a data app."
+    ],
+    "stack": [
+      "Python",
+      "Jupyter"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/AADHAAR-PRESSURE-UPDATE-INTELLIGENCE-SYSTEM",
+    "live": "",
+    "video": "https://youtu.be/P_dZWWPQM_c",
+    "release": "",
+    "releaseLabel": "",
+    "event": "UIDAI data hackathon (submission 11256)",
+    "created": "2026-06-27",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "ufdr-analyzer",
+    "name": "UFDR Analyzer",
+    "tagline": "Digital-forensics tool for phone extraction reports",
+    "tags": [
+      "security",
+      "data"
+    ],
+    "featured": 0,
+    "problem": "Investigators need to explore contacts, calls and messages inside UFDR extraction files.",
+    "built": [
+      "Python web app that loads contacts, calls and messages, with mock-data generators and a communication-network view."
+    ],
+    "stack": [
+      "Python",
+      "HTML"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/UFDR-ANALYZER-TOOL",
+    "live": "",
+    "video": "https://youtu.be/Ydn5dh8-xas",
+    "release": "",
+    "releaseLabel": "",
+    "event": "Smart India Hackathon 2025",
+    "created": "2026-06-27",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "memory-agent",
+    "name": "MemoryAgent",
+    "tagline": "Assistant with long-term memory that ages and corrects itself",
+    "tags": [
+      "ai-ml"
+    ],
+    "featured": 0,
+    "problem": "Assistants forget durable facts about a user between sessions.",
+    "built": [
+      "Facts stored with a confidence score; recall ranks by relevance, confidence and recency.",
+      "Confidence decays over time, stale memories are deleted and close duplicates overwrite old facts."
+    ],
+    "stack": [
+      "FastAPI",
+      "SQLite",
+      "Qwen API",
+      "Alibaba Cloud"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/QWEN-CLOUD-MEMORY-AGENT",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "Global AI Hackathon with Qwen Cloud (Track 1)",
+    "created": "2026-07-19",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "capstone-finnova",
+    "name": "Capstone: Enterprise Knowledge Platform",
+    "tagline": "Privacy-first RAG platform for company knowledge",
+    "tags": [
+      "ai-ml",
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Staff need to search company knowledge while keeping access private and auditable.",
+    "built": [
+      "FastAPI backend with authentication, retrieval, conflict detection between sources, an audit log and integrations.",
+      "React + TypeScript front end with a unified intelligence page."
+    ],
+    "stack": [
+      "FastAPI",
+      "SQLite",
+      "React",
+      "TypeScript"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/Capstone-Enterprise-Knowledge-Management",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "EEC capstone (FinNova)",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "sondra",
+    "name": "Sondra",
+    "tagline": "Private music streaming from your own Google Drive",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Play your own audio library without copying files to a server.",
+    "built": [
+      "FastAPI backend streams from Google Drive over a read-only OAuth connection, with a React admin dashboard and a Flutter player for Android and Windows."
+    ],
+    "stack": [
+      "FastAPI",
+      "React",
+      "Flutter",
+      "Google Drive API"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/sondra",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-06-27",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "notally",
+    "name": "Notally",
+    "tagline": "Offline encrypted notebook app in Flutter",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "A secure offline notebook.",
+    "built": [
+      "Flutter app organised into core and feature modules, with an Android build."
+    ],
+    "stack": [
+      "Flutter",
+      "Dart"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/Notally",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "bookmyshow-deluxe",
+    "name": "BookMyShow Deluxe",
+    "tagline": "Java Swing movie ticket booking app",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Desktop ticket booking with user and admin panels.",
+    "built": [
+      "Swing screens for login, showtimes, a colour-coded seat map and simulated payment; admin panel for movies, showtimes and bookings.",
+      "All data goes through one DatabaseManager to SQLite over JDBC."
+    ],
+    "stack": [
+      "Java",
+      "Swing",
+      "SQLite",
+      "JDBC"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/MOVIE-TICKET-BOOKING-SYSTEM-JAVA",
+    "live": "",
+    "video": "https://youtu.be/FnWqxZYr6aU",
+    "release": "",
+    "releaseLabel": "",
+    "event": "Semester 3 Java project",
+    "created": "2026-06-27",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "hospital-mad1",
+    "name": "Hospital Management System (MAD 1)",
+    "tagline": "IIT Madras hospital app with admin, doctor and patient roles",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Appointment booking and medical history across three roles.",
+    "built": [
+      "Server-rendered Flask app with Jinja templates and SQLite, appointment booking, patient history and admin blacklisting."
+    ],
+    "stack": [
+      "Flask",
+      "Jinja2",
+      "SQLite"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/HOSPITAL-MANAGEMENT-SYSTEM-MAD-1",
+    "live": "",
+    "video": "https://youtu.be/ing8-6VmQz0",
+    "release": "",
+    "releaseLabel": "",
+    "event": "IIT Madras MAD I",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "hospital-mad2",
+    "name": "Hospital Management System (MAD 2)",
+    "tagline": "Flask API, Vue front end and background jobs",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "The MAD 1 hospital app rebuilt as an API with a single-page front end and scheduled jobs.",
+    "built": [
+      "Flask REST backend with a Vue frontend; Celery worker and beat run emails and exports, with Redis as broker and cache."
+    ],
+    "stack": [
+      "Flask",
+      "Vue.js",
+      "Celery",
+      "Redis"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/HOSPITAL-MANAGEMENT-SYSTEM-MAD-2",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "IIT Madras MAD II",
+    "created": "2026-11-07",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "portfolio",
+    "name": "Portfolio",
+    "tagline": "This site: a data-driven personal portfolio",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "One place where every claim links to proof.",
+    "built": [
+      "Content lives in JSON data files and proof folders; new wins and certificates need no code change."
+    ],
+    "stack": [
+      "Vite",
+      "React",
+      "TypeScript",
+      "Tailwind"
+    ],
+    "result": "",
+    "status": "",
+    "github": "https://github.com/shriram-s7/portfolio-s-shriram",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-06-27",
+    "updated": "2026-11-08",
+    "context": "",
+    "challenges": []
+  }
+]

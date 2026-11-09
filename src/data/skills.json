@@ -1,0 +1,708 @@
+[
+  {
+    "name": "Python",
+    "category": "Languages",
+    "logo": "python",
+    "level": "Primary",
+    "projectCount": 17,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "resume-ranker-ai",
+      "aadhaar-pressure",
+      "ufdr-analyzer",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "hospital-mad1",
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Java",
+    "category": "Languages",
+    "logo": "java",
+    "level": "Advanced",
+    "projectCount": 1,
+    "projects": [
+      "bookmyshow-deluxe"
+    ],
+    "certs": [
+      "oracle-ocp-java-se-17"
+    ],
+    "proofLine": true
+  },
+  {
+    "name": "SQL",
+    "category": "Languages",
+    "logo": "sql",
+    "level": "Advanced",
+    "projectCount": 12,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "bookmyshow-deluxe",
+      "hospital-mad1",
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "C",
+    "category": "Languages",
+    "logo": "c",
+    "level": "Familiar",
+    "projectCount": 0,
+    "projects": [],
+    "certs": [
+      "nptel-c-programming"
+    ],
+    "proofLine": true
+  },
+  {
+    "name": "C++",
+    "category": "Languages",
+    "logo": "c++",
+    "level": "Familiar",
+    "projectCount": 0,
+    "projects": [],
+    "certs": [
+      "livewire-cpp"
+    ],
+    "proofLine": true
+  },
+  {
+    "name": "JavaScript",
+    "category": "Languages",
+    "logo": "javascript",
+    "level": "Intermediate",
+    "projectCount": 12,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "neighborly",
+      "dairyflow",
+      "satquery",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "hospital-mad2",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "TypeScript",
+    "category": "Languages",
+    "logo": "typescript",
+    "level": "Intermediate",
+    "projectCount": 9,
+    "projects": [
+      "hash-patch",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "sylvasense",
+      "capstone-finnova",
+      "sondra",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "HTML / CSS",
+    "category": "Languages",
+    "logo": "html",
+    "level": "Intermediate",
+    "projectCount": 18,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "sylvasense",
+      "ufdr-analyzer",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "hospital-mad1",
+      "hospital-mad2",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "PyTorch",
+    "category": "AI / ML",
+    "logo": "pytorch",
+    "level": "Advanced",
+    "projectCount": 3,
+    "projects": [
+      "auramed",
+      "fsoc-pat",
+      "resume-ranker-ai"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "timm",
+    "category": "AI / ML",
+    "logo": "timm",
+    "level": "Advanced",
+    "projectCount": 1,
+    "projects": [
+      "auramed"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "OpenCV",
+    "category": "AI / ML",
+    "logo": "opencv",
+    "level": "Advanced",
+    "projectCount": 3,
+    "projects": [
+      "auramed",
+      "fsoc-pat",
+      "ufdr-analyzer"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "CNNs",
+    "category": "AI / ML",
+    "logo": "cnn",
+    "level": "Advanced",
+    "projectCount": 2,
+    "projects": [
+      "auramed",
+      "fsoc-pat"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Vision Transformers",
+    "category": "AI / ML",
+    "logo": "vit",
+    "level": "Advanced",
+    "projectCount": 1,
+    "projects": [
+      "auramed"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Grad-CAM",
+    "category": "AI / ML",
+    "logo": "gradcam",
+    "level": "Advanced",
+    "projectCount": 1,
+    "projects": [
+      "auramed"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "NLP",
+    "category": "AI / ML",
+    "logo": "nlp",
+    "level": "Advanced",
+    "projectCount": 4,
+    "projects": [
+      "neighborly",
+      "satquery",
+      "resume-ranker-ai",
+      "ufdr-analyzer"
+    ],
+    "certs": [
+      "nptel-nlp"
+    ],
+    "proofLine": true
+  },
+  {
+    "name": "RAG",
+    "category": "AI / ML",
+    "logo": "rag",
+    "level": "Advanced",
+    "projectCount": 2,
+    "projects": [
+      "resume-ranker-ai",
+      "capstone-finnova"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "FastAPI",
+    "category": "Web & Backend",
+    "logo": "fastapi",
+    "level": "Advanced",
+    "projectCount": 13,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "aadhaar-pressure",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Flask",
+    "category": "Web & Backend",
+    "logo": "flask",
+    "level": "Advanced",
+    "projectCount": 3,
+    "projects": [
+      "cryptiq",
+      "hospital-mad1",
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "React",
+    "category": "Web & Backend",
+    "logo": "react",
+    "level": "Advanced",
+    "projectCount": 13,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "sylvasense",
+      "capstone-finnova",
+      "sondra",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Vite",
+    "category": "Web & Backend",
+    "logo": "vite",
+    "level": "Advanced",
+    "projectCount": 13,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "capstone-finnova",
+      "sondra",
+      "hospital-mad2",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Tailwind",
+    "category": "Web & Backend",
+    "logo": "tailwind",
+    "level": "Advanced",
+    "projectCount": 7,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "neighborly",
+      "cryptiq",
+      "satquery",
+      "capstone-finnova",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "NestJS",
+    "category": "Web & Backend",
+    "logo": "nestjs",
+    "level": "Advanced",
+    "projectCount": 1,
+    "projects": [
+      "neighborly"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "REST APIs",
+    "category": "Web & Backend",
+    "logo": "rest",
+    "level": "Advanced",
+    "projectCount": 16,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "aadhaar-pressure",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "hospital-mad1",
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Node.js",
+    "category": "Web & Backend",
+    "logo": "node",
+    "level": "Intermediate",
+    "projectCount": 15,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "sylvasense",
+      "capstone-finnova",
+      "sondra",
+      "hospital-mad2",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Next.js",
+    "category": "Web & Backend",
+    "logo": "nextjs",
+    "level": "Familiar",
+    "projectCount": 1,
+    "projects": [
+      "sylvasense"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Vue",
+    "category": "Web & Backend",
+    "logo": "vue",
+    "level": "Familiar",
+    "projectCount": 1,
+    "projects": [
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Celery",
+    "category": "Web & Backend",
+    "logo": "celery",
+    "level": "Familiar",
+    "projectCount": 1,
+    "projects": [
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "MapLibre / Leaflet",
+    "category": "Web & Backend",
+    "logo": "maplibre",
+    "level": "Intermediate",
+    "projectCount": 5,
+    "projects": [
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "dairyflow",
+      "satquery"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "PostgreSQL",
+    "category": "Data & Cloud",
+    "logo": "postgresql",
+    "level": "Advanced",
+    "projectCount": 2,
+    "projects": [
+      "auramed",
+      "neighborly"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "SQLite",
+    "category": "Data & Cloud",
+    "logo": "sqlite",
+    "level": "Advanced",
+    "projectCount": 8,
+    "projects": [
+      "auramed",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "memory-agent",
+      "capstone-finnova",
+      "bookmyshow-deluxe",
+      "hospital-mad1"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "MySQL",
+    "category": "Data & Cloud",
+    "logo": "mysql",
+    "level": "Advanced",
+    "projectCount": 0,
+    "projects": [],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "MongoDB",
+    "category": "Data & Cloud",
+    "logo": "mongodb",
+    "level": "Advanced",
+    "projectCount": 1,
+    "projects": [
+      "neighborly"
+    ],
+    "certs": [
+      "mongodb-basics-for-students"
+    ],
+    "proofLine": true
+  },
+  {
+    "name": "AWS (EC2, API Gateway, Amplify)",
+    "category": "Data & Cloud",
+    "logo": "aws",
+    "level": "Advanced",
+    "projectCount": 0,
+    "projects": [],
+    "certs": [
+      "aws-solutions-architect-associate",
+      "aws-developer-associate",
+      "aws-ai-practitioner",
+      "aws-cloud-practitioner"
+    ],
+    "proofLine": true
+  },
+  {
+    "name": "Redis",
+    "category": "Data & Cloud",
+    "logo": "redis",
+    "level": "Familiar",
+    "projectCount": 1,
+    "projects": [
+      "hospital-mad2"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Pandas",
+    "category": "Data & Cloud",
+    "logo": "pandas",
+    "level": "Intermediate",
+    "projectCount": 4,
+    "projects": [
+      "pulse-echo",
+      "resume-ranker-ai",
+      "aadhaar-pressure",
+      "ufdr-analyzer"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Streamlit",
+    "category": "Data & Cloud",
+    "logo": "streamlit",
+    "level": "Intermediate",
+    "projectCount": 3,
+    "projects": [
+      "resume-ranker-ai",
+      "aadhaar-pressure",
+      "ufdr-analyzer"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Docker",
+    "category": "Data & Cloud",
+    "logo": "docker",
+    "level": "Intermediate",
+    "projectCount": 2,
+    "projects": [
+      "auramed",
+      "neighborly"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Git",
+    "category": "Tools",
+    "logo": "git",
+    "level": "Advanced",
+    "projectCount": 22,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "sylvasense",
+      "resume-ranker-ai",
+      "aadhaar-pressure",
+      "ufdr-analyzer",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "notally",
+      "bookmyshow-deluxe",
+      "hospital-mad1",
+      "hospital-mad2",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": false
+  },
+  {
+    "name": "GitHub",
+    "category": "Tools",
+    "logo": "github",
+    "level": "Advanced",
+    "projectCount": 22,
+    "projects": [
+      "auramed",
+      "hash-patch",
+      "fsoc-pat",
+      "optiflow",
+      "pulse-echo",
+      "neighborly",
+      "cryptiq",
+      "reclaim",
+      "dairyflow",
+      "satquery",
+      "sylvasense",
+      "resume-ranker-ai",
+      "aadhaar-pressure",
+      "ufdr-analyzer",
+      "memory-agent",
+      "capstone-finnova",
+      "sondra",
+      "notally",
+      "bookmyshow-deluxe",
+      "hospital-mad1",
+      "hospital-mad2",
+      "portfolio"
+    ],
+    "certs": [],
+    "proofLine": false
+  },
+  {
+    "name": "Electron",
+    "category": "Tools",
+    "logo": "electron",
+    "level": "Intermediate",
+    "projectCount": 2,
+    "projects": [
+      "hash-patch",
+      "fsoc-pat"
+    ],
+    "certs": [],
+    "proofLine": true
+  },
+  {
+    "name": "Flutter / Dart",
+    "category": "Tools",
+    "logo": "flutter",
+    "level": "Intermediate",
+    "projectCount": 2,
+    "projects": [
+      "sondra",
+      "notally"
+    ],
+    "certs": [],
+    "proofLine": true
+  }
+]

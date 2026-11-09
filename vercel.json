@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/verify", "destination": "/verify/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/((?!api/|proof/|verify/|assets/|logos/|resume\\.pdf|.*\\..*).*)", "destination": "/index.html" }
+  ]
+}

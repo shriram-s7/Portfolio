@@ -3,10 +3,7 @@ import { buildPortfolioKnowledge } from '../src/lib/buildPortfolioKnowledge.js';
 
 export default async function handler(req, res) {
     if (!process.env.GEMINI_API_KEY) {
-        return res.status(500).json({ 
-            error: "Missing GEMINI_API_KEY",
-            message: "The Gemini API key is missing. Please add GEMINI_API_KEY to your environment variables." 
-        });
+        return res.status(500).json({ error: 'Unavailable', message: 'Assistant is offline right now.' });
     }
 
     // CORS Headers
@@ -112,10 +109,10 @@ Instructions:
         });
 
     } catch (error) {
-        console.error("Gemini API Error:", error);
+        console.error("Gemini API Error:", error?.status || '', String(error?.message || '').slice(0, 200));
         return res.status(500).json({
             error: 'Internal Server Error',
-            message: error.message
+            message: 'Assistant is offline right now.'
         });
     }
 }
