@@ -57,19 +57,21 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-8 grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-stretch">
           {shown.map((p) => (
-            <div key={p.slug} className={`rounded-2xl transition-shadow duration-500 ${highlight === p.slug ? 'ring-2 ring-primary' : ''}`}>
+            <div key={p.slug} className={`w-full min-w-0 max-w-xl md:max-w-none rounded-2xl transition-shadow duration-500 ${highlight === p.slug ? 'ring-2 ring-primary' : ''}`}>
               <ProjectCard project={p} featured onOpen={setOpen} id={`project-card-${p.slug}`} />
             </div>
           ))}
-          <MoreBox
-            count={otherProjects.length}
-            noun="projects"
-            to="/projects"
-            section="projects"
-            previews={otherProjects.slice(0, 3).map((p) => ({ title: p.name, sub: p.stack.slice(0, 2).join(' · '), img: mediaFor(p.slug).cover }))}
-          />
+          <div className="w-full min-w-0 max-w-xl md:max-w-none">
+            <MoreBox
+              count={otherProjects.length}
+              noun="projects"
+              to="/projects"
+              section="projects"
+              previews={otherProjects.slice(0, 3).map((p) => ({ title: p.name, sub: p.stack.slice(0, 2).join(' · '), img: mediaFor(p.slug).cover }))}
+            />
+          </div>
         </div>
         {shown.length === 0 && (
           <p className="mt-4 text-center text-sm text-white/50">No featured project in this theme. Open the {projects.length - featuredProjects.length} more to see them all.</p>

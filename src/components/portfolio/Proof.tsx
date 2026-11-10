@@ -36,6 +36,7 @@ export const ProofViewer = ({ req, onClose }: { req: ViewerRequest | null; onClo
   return (
     <Dialog open={!!req} onOpenChange={(o) => !o && onClose()}>
       <DialogContent
+        hideDefaultClose
         className="max-w-4xl w-[94vw] sm:w-full glass-card border-white/10 p-4 md:p-5 z-[120]"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => {
