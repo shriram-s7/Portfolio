@@ -85,7 +85,7 @@ function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        <main className="min-h-screen text-foreground relative selection:bg-primary/30">
+        <main className="min-h-screen text-foreground relative selection:bg-primary/30 overflow-x-clip">
           <ModernBackground />
           {ENABLE_CHAT && <Suspense fallback={null}><TechCompanion /></Suspense>}
           <div className="relative z-10">

@@ -88,7 +88,7 @@ export const ProjectCard = ({ project, onOpen, featured = false, id }: { project
       </div>
       {hasShot && (
         <div className="relative aspect-[16/10] overflow-hidden bg-black/50">
-          <img src={cover} alt={`${project.name} screenshot`} loading="lazy" decoding="async" onError={() => setBroken(true)} className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]" />
+          <img src={cover} alt={`${project.name} screenshot`} loading="lazy" decoding="async" onError={() => setBroken(true)} className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]" />
           <div className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-black/85 via-black/40 to-transparent p-3 pt-10">
             <ProjectLinks project={project} />
           </div>
@@ -165,17 +165,17 @@ export const ProjectDetail = ({ project, onClose }: { project: Project | null; o
 
   return (
     <Dialog open={!!project} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-4xl glass-card border-white/10 p-0 overflow-hidden z-[100]">
+      <DialogContent className="max-w-4xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]">
         {project && (
           <ScrollHint className="max-h-[88vh]">
             <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/60 p-2 text-white hover:bg-white/20" aria-label="Close"><X size={18} /></DialogClose>
             {shots.length > 0 && (
-            <div className="relative aspect-[16/8] bg-black/60">
-              <img src={shots[shot]} alt={`${project.name} screenshot ${shot + 1}`} className="h-full w-full object-contain" />
+            <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] bg-black/70 flex items-center justify-center overflow-hidden">
+              <img src={shots[shot]} alt={`${project.name} screenshot ${shot + 1}`} className="h-full w-full object-contain object-center" />
               {shots.length > 1 && (
                 <>
-                  <button type="button" onClick={() => go(-1)} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Previous screenshot"><ChevronLeft size={20} /></button>
-                  <button type="button" onClick={() => go(1)} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Next screenshot"><ChevronRight size={20} /></button>
+                  <button type="button" onClick={() => go(-1)} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Previous screenshot"><ChevronLeft size={20} /></button>
+                  <button type="button" onClick={() => go(1)} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Next screenshot"><ChevronRight size={20} /></button>
                   <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-[11px] font-mono text-white/80">{shot + 1} / {shots.length}</span>
                 </>
               )}

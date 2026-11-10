@@ -177,17 +177,17 @@ const HackDetail = ({ w, onClose }: { w: Win | null; onClose: () => void }) => {
 
   return (
     <Dialog open={!!w} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-3xl glass-card border-white/10 p-0 overflow-hidden z-[100]">
+      <DialogContent className="max-w-3xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]">
         {w && (
           <ScrollHint className="max-h-[88vh]">
             <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/60 p-2 text-white hover:bg-white/20" aria-label="Close"><X size={18} /></DialogClose>
             {photos.length > 0 && (
-              <div className="relative aspect-[16/9] bg-black/70">
-                <img src={photos[i]} alt={`${w.title} photo ${i + 1}`} className="h-full w-full object-contain" />
+              <div className="relative aspect-[4/3] sm:aspect-[16/9] bg-black/70 flex items-center justify-center overflow-hidden">
+                <img src={photos[i]} alt={`${w.title} photo ${i + 1}`} className="h-full w-full object-contain object-center" />
                 {photos.length > 1 && (
                   <>
-                    <button type="button" onClick={() => go(-1)} className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Previous photo"><ChevronLeft size={20} /></button>
-                    <button type="button" onClick={() => go(1)} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Next photo"><ChevronRight size={20} /></button>
+                    <button type="button" onClick={() => go(-1)} className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Previous photo"><ChevronLeft size={20} /></button>
+                    <button type="button" onClick={() => go(1)} className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80" aria-label="Next photo"><ChevronRight size={20} /></button>
                     <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
                       {photos.map((_, n) => <span key={n} className={`h-1.5 rounded-full transition-all ${n === i ? 'w-5 bg-yellow-400' : 'w-1.5 bg-white/40'}`} />)}
                     </div>

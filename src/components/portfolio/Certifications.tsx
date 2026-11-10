@@ -51,11 +51,11 @@ const Certifications = () => {
             <button
               type="button"
               onClick={() => { rememberScroll('certifications'); nav('/certifications'); }}
-              className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 px-8 py-3.5 text-base font-bold text-white shadow-[0_8px_30px_-8px_rgba(168,85,247,0.7)] transition-transform duration-200 hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 px-5 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-bold text-white shadow-[0_8px_30px_-8px_rgba(168,85,247,0.7)] transition-transform duration-200 hover:-translate-y-0.5 max-w-full text-center"
             >
-              Check remaining courses & certs
-              <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-sm">{restCerts.length}</span>
-              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
+              <span>Check remaining courses & certs</span>
+              <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-xs sm:text-sm shrink-0">{restCerts.length}</span>
+              <ArrowRight size={18} className="shrink-0 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
           </div>
         </div>

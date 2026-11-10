@@ -41,24 +41,24 @@ const CertificationsPage = () => {
       <div className="mx-auto mb-8 flex max-w-6xl flex-col gap-4">
         <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between">
           <SearchBox value={q} onChange={setQ} placeholder="Search title, issuer or credential ID" />
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
             <ViewSwitch value={view} onChange={setView} restCount={rest.length} allCount={certs.length} restLabel="Remaining issuers" />
             <SelectBox label="Sort" value={sort} onChange={setSort} options={[{ v: 'date-desc', l: 'Newest first' }, { v: 'date-asc', l: 'Oldest first' }]} />
           </div>
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by issuer">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-2" role="group" aria-label="Filter by issuer">
           <Chip active={issuer === 'all'} onClick={() => setIssuer('all')}>All issuers</Chip>
           {issuers.filter((i) => view === 'all' || !(HOME_ISSUERS as readonly string[]).includes(i)).map((i) => <Chip key={i} active={issuer === i} onClick={() => setIssuer(i)}>{i}</Chip>)}
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by type">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-2" role="group" aria-label="Filter by type">
           <Chip active={type === 'all'} onClick={() => setType('all')}>All types</Chip>
           {types.map((t) => <Chip key={t} active={type === t} onClick={() => setType(t)}>{CERT_TYPE_LABEL[t]}</Chip>)}
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by year">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-2" role="group" aria-label="Filter by year">
           <Chip active={year === 'all'} onClick={() => setYear('all')}>All years</Chip>
           {years.map((y) => <Chip key={y} active={year === y} onClick={() => setYear(y)}>{y}</Chip>)}
         </div>
-        <p className="text-xs text-white/65" aria-live="polite">{total} shown</p>
+        <p className="text-xs text-white/65 text-center sm:text-left" aria-live="polite">{total} shown</p>
       </div>
 
       {groups.length ? (
