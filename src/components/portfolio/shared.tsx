@@ -102,7 +102,7 @@ export const PageShell = ({ title, accent, subtitle, children }: { title: string
   return (
     <div className="container mx-auto px-5 sm:px-6 py-8 md:py-12">
       <Helmet><title>{`${title} ${accent} | S Shriram`}</title></Helmet>
-      <div className="mb-8"><BackButton /></div>
+      <div className="mb-8 flex justify-center sm:justify-start"><BackButton /></div>
       <header className="mb-8 text-center">
         <h1 className="section-title">{title} <span className="gradient-text">{accent}</span></h1>
         <p className="section-subtitle">{subtitle}</p>

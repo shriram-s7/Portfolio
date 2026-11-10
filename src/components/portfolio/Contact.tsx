@@ -57,23 +57,23 @@ const Contact = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-8 md:p-12 animate-scale-in animation-delay-200">
-            <div className="grid md:grid-cols-2 gap-12">
+          <div className="glass-card p-6 sm:p-8 md:p-12 animate-scale-in animation-delay-200">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {/* Contact Info */}
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="font-display font-semibold text-xl mb-6">Contact Information</h3>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="p-2 rounded-lg bg-primary/10">
+                    <div key={index} className="flex items-center gap-4 justify-start">
+                      <div className="p-2 rounded-lg bg-primary/10 shrink-0">
                         <info.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <div>
+                      <div className="text-left">
                         <p className="text-xs text-muted-foreground">{info.label}</p>
                         {info.href ? (
                           <a
                             href={info.href}
-                            className="text-foreground hover:text-primary transition-colors"
+                            className="text-foreground hover:text-primary transition-colors break-all"
                           >
                             {info.value}
                           </a>
@@ -88,7 +88,7 @@ const Contact = () => {
                 {/* Social Links */}
                 <div className="mt-8">
                   <h4 className="font-medium text-sm text-muted-foreground mb-4">Connect with me</h4>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 justify-center md:justify-start">
                     {socialLinks.map((social, index) => (
                       <a
                         key={index}

@@ -187,8 +187,8 @@ const Education = () => {
                   className={`absolute -right-6 -top-6 w-32 h-32 opacity-5 group-hover:opacity-10 transition-all duration-500 -rotate-12 ${edu.color.split(' ')[0]}`}
                 />
 
-                <div className="flex-1 order-2 md:order-1 relative z-10">
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                <div className="flex-1 order-2 md:order-1 relative z-10 w-full">
+                  <div className="flex flex-wrap items-center gap-3 mb-3 justify-center md:justify-start">
                     <span className="text-xs font-mono text-[#E2E8F0] bg-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5">
                       <Calendar size={12} />
                       {edu.year}
@@ -201,23 +201,25 @@ const Education = () => {
                   </div>
 
                   {/* Increased Font Size */}
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white transition-colors text-center md:text-left">
                     {edu.degree}
                   </h3>
-                  <p className="text-base font-medium text-[#94A3B8] mb-4">
+                  <p className="text-base font-medium text-[#94A3B8] mb-4 text-center md:text-left">
                     {edu.institution}
                   </p>
 
-                  <p className="text-sm text-[#E2E8F0] leading-relaxed line-clamp-2">
+                  <p className="text-sm text-[#E2E8F0] leading-relaxed line-clamp-2 text-center md:text-left">
                     {edu.description}
                   </p>
 
-                  <span className="inline-flex mt-4 text-xs font-medium text-white/50 group-hover:text-primary transition-colors border-b border-transparent group-hover:border-primary items-center gap-1">
-                    Click to view details <ArrowUpRight size={14} />
-                  </span>
+                  <div className="text-center md:text-left">
+                    <span className="inline-flex mt-4 text-xs font-medium text-white/50 group-hover:text-primary transition-colors border-b border-transparent group-hover:border-primary items-center gap-1">
+                      Click to view details <ArrowUpRight size={14} />
+                    </span>
+                  </div>
                 </div>
 
-                <div className="order-1 md:order-2 shrink-0 relative z-10">
+                <div className="order-1 md:order-2 shrink-0 relative z-10 self-center md:self-auto">
                   <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl ${edu.color} flex items-center justify-center p-4 bg-white/5 border border-[#334155] group-hover:scale-110 transition-transform duration-300`}>
                     {edu.logo ? (
                       <img
@@ -238,7 +240,7 @@ const Education = () => {
 
       {/* --- EXPANDED DETAILS MODAL --- */}
       {selectedEdu && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4">
           <div
             className="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity"
             onClick={() => setSelectedEdu(null)}
@@ -246,8 +248,8 @@ const Education = () => {
 
           <div className="relative w-full max-w-2xl bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-scale-in flex flex-col max-h-[85vh]">
 
-            <div className="relative p-6 md:p-8 border-b border-white/10 bg-white/5">
-              <div className="absolute top-4 right-4">
+            <div className="relative p-5 sm:p-6 md:p-8 border-b border-white/10 bg-white/5">
+              <div className="absolute top-4 right-4 z-10">
                 <button
                   onClick={() => setSelectedEdu(null)}
                   className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
@@ -256,7 +258,7 @@ const Education = () => {
                 </button>
               </div>
 
-              <div className="flex items-start gap-5">
+              <div className="flex items-start gap-4 sm:gap-5 pr-10">
                 <div className={`w-16 h-16 rounded-xl ${selectedEdu.color} flex items-center justify-center p-3.5 bg-black/40 border border-white/10 shrink-0`}>
                   {selectedEdu.logo ? (
                     <img src={selectedEdu.logo} alt="logo" className="w-full h-full object-contain" />

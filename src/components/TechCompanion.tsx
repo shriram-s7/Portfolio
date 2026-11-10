@@ -82,7 +82,7 @@ const TechCompanion = () => {
   return (
     <div
       ref={botRef}
-      className={`fixed bottom-12 right-12 z-50 transition-all duration-300 ease-in-out cursor-pointer
+      className={`fixed bottom-4 right-4 sm:bottom-12 sm:right-12 z-50 transition-all duration-300 ease-in-out cursor-pointer
         ${scaleClass} 
         ${isClicked ? 'animate-spin-fast' : 'animate-float'}
         ${visibilityClass}
@@ -93,12 +93,10 @@ const TechCompanion = () => {
       title="I'm watching you!!"
     >
       <svg
-        width="100"
-        height="100"
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+        className="w-14 h-14 sm:w-[100px] sm:h-[100px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
       >
         {/* Antenna */}
         <line x1="50" y1="20" x2="50" y2="5" stroke="#2dd4bf" strokeWidth="4" strokeLinecap="round" />

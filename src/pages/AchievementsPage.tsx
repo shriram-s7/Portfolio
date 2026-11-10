@@ -29,20 +29,20 @@ const AchievementsPage = () => {
       <div className="mx-auto mb-8 flex max-w-6xl flex-col gap-4">
         <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between">
           <SearchBox value={q} onChange={setQ} placeholder="Search event, organiser or rank" />
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
             <ViewSwitch value={view} onChange={setView} restCount={rest.length} allCount={allAchievements.length} />
             <SelectBox label="Sort" value={sort} onChange={setSort} options={[{ v: 'newest', l: 'Newest' }, { v: 'oldest', l: 'Oldest' }, { v: 'name', l: 'Name' }]} />
           </div>
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by type">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-2" role="group" aria-label="Filter by type">
           <Chip active={kind === 'all'} onClick={() => setKind('all')}>All types</Chip>
           {(Object.keys(KIND_LABEL) as AchievementKind[]).map((k) => <Chip key={k} active={kind === k} onClick={() => setKind(k)}>{KIND_LABEL[k]}</Chip>)}
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by year">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-2" role="group" aria-label="Filter by year">
           <Chip active={year === 'all'} onClick={() => setYear('all')}>All years</Chip>
           {years.map((y) => <Chip key={y} active={year === y} onClick={() => setYear(y)}>{y}</Chip>)}
         </div>
-        <p className="text-xs text-white/50" aria-live="polite">{list.length} shown</p>
+        <p className="text-xs text-white/50 text-center sm:text-left" aria-live="polite">{list.length} shown</p>
       </div>
 
       {list.length ? (

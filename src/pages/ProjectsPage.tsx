@@ -51,24 +51,24 @@ const ProjectsPage = () => {
       <div className="mx-auto mb-8 flex max-w-6xl flex-col gap-4">
         <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between">
           <SearchBox value={q} onChange={setQ} placeholder="Search name, stack or problem" />
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
             <ViewSwitch value={view} onChange={setView} restCount={rest.length} allCount={projects.length} />
             <SelectBox label="Sort" value={sort} onChange={setSort} options={[{ v: 'featured', l: 'Featured' }, { v: 'newest', l: 'Newest' }, { v: 'wins', l: 'Wins first' }]} />
           </div>
         </div>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by theme">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-2" role="group" aria-label="Filter by theme">
           <Chip active={tag === 'all'} onClick={() => setTag('all')}>All themes</Chip>
           {TAGS.map((t) => <Chip key={t.id} active={tag === t.id} onClick={() => setTag(t.id)}>{t.label}</Chip>)}
         </div>
         {skill && (
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/50 bg-cyan-500/15 px-3.5 py-1.5 text-xs font-bold text-cyan-200">
               Skill: {skill.name.split(' (')[0]} · {skill.projectCount} project{skill.projectCount === 1 ? '' : 's'}
               <button type="button" aria-label="Clear skill filter" onClick={() => { params.delete('skill'); setParams(params, { replace: true }); setView('rest'); }} className="rounded-full p-0.5 hover:bg-white/10"><X size={12} /></button>
             </span>
           </div>
         )}
-        <p className="text-xs text-white/65" aria-live="polite">{list.length} shown</p>
+        <p className="text-xs text-white/65 text-center sm:text-left" aria-live="polite">{list.length} shown</p>
       </div>
 
       {list.length ? (

@@ -425,7 +425,7 @@ export const CertDetail = ({ cert, onClose }: { cert: Cert | null; onClose: () =
       <DialogContent
         overlayClassName="z-[90] bg-black/80 backdrop-blur-sm"
         hideDefaultClose
-        className="max-w-4xl glass-card border-white/10 p-0 overflow-hidden z-[100]"
+        className="max-w-4xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]"
       >
         {cert && proof && (
           <ScrollHint className="max-h-[90vh]">

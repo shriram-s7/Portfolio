@@ -228,10 +228,10 @@ const Hero = () => {
                   {/* Two-row Diploma Tracker */}
                   <div className="mt-3 flex flex-col gap-[10px]">
                     {/* Row 1: Completed */}
-                    <div className="flex items-center justify-between text-xs md:text-[14px] max-w-sm">
+                    <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-1.5 text-xs md:text-[14px] max-w-sm">
                       <div className="flex items-center gap-2">
                         <span className="w-4 h-4 rounded-full bg-[#4ADE80] text-black font-extrabold flex items-center justify-center text-[10px] shrink-0">✓</span>
-                        <span className="text-[#4ADE80] font-medium">Diploma in Programming</span>
+                        <span className="text-[#4ADE80] font-medium text-[11px] sm:text-xs md:text-[14px]">Diploma in Programming</span>
                       </div>
                       <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] md:text-[11px] font-bold bg-[#4ADE80]/20 text-[#4ADE80] shrink-0">
                         Completed
@@ -239,13 +239,13 @@ const Hero = () => {
                     </div>
                     
                     {/* Row 2: In Progress */}
-                    <div className="flex items-center justify-between text-xs md:text-[14px] max-w-sm">
+                    <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-1.5 text-xs md:text-[14px] max-w-sm">
                       <div className="flex items-center gap-2">
                         <span className="relative flex h-2 w-2 shrink-0">
                           <span className="animate-pulse-dot absolute inline-flex h-full w-full rounded-full bg-[#7C3AED]"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7C3AED]"></span>
                         </span>
-                        <span className="text-[#A78BFA] font-medium">Diploma in Data Science</span>
+                        <span className="text-[#A78BFA] font-medium text-[11px] sm:text-xs md:text-[14px]">Diploma in Data Science</span>
                       </div>
                       <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] md:text-[11px] font-bold bg-[#7C3AED]/20 text-[#C4B5FD] shrink-0">
                         In Progress
