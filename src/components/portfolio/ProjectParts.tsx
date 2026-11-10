@@ -18,12 +18,12 @@ export const tagLabel = (id: string) => TAGS.find((t) => t.id === id)?.label ?? 
 export const ytId = (url: string) => url.match(/(?:youtu\.be\/|v=)([\w-]{11})/)?.[1] ?? '';
 
 const linkBtn =
-  'inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-black/65 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur transition-colors hover:border-cyan-300 hover:bg-cyan-500/30';
+  'inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/25 bg-black/65 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-bold text-white backdrop-blur transition-colors hover:border-cyan-300 hover:bg-cyan-500/30 shrink-0';
 
 export const ProjectLinks = ({ project, className = '' }: { project: Project; className?: string }) => {
   const stop = (e: React.MouseEvent) => e.stopPropagation();
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`} onClick={stop}>
+    <div className={`flex flex-wrap gap-1.5 sm:gap-2 max-w-full ${className}`} onClick={stop}>
       {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className={linkBtn}><Github size={12} /> GitHub</a>}
       {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className={linkBtn}><ExternalLink size={12} /> Live</a>}
       {project.video && <a href={project.video} target="_blank" rel="noopener noreferrer" className={linkBtn}><Youtube size={12} /> Video</a>}
@@ -79,7 +79,7 @@ export const ProjectCard = ({ project, onOpen, featured = false, id }: { project
   const hasShot = !!cover && !broken;
   const host = project.live ? project.live.replace(/^https?:\/\//, '') : `github.com/shriram-s7/${project.github.split('/').pop()}`;
   return (
-    <LiftCard id={id} onClick={() => onOpen(project)} glow={t.glow} className="group flex h-full flex-col overflow-hidden">
+    <LiftCard id={id} onClick={() => onOpen(project)} glow={t.glow} className="group flex h-full w-full min-w-0 flex-col overflow-hidden">
       <div className="flex items-center gap-1.5 border-b border-white/10 bg-black/40 px-3 py-2">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
@@ -165,7 +165,7 @@ export const ProjectDetail = ({ project, onClose }: { project: Project | null; o
 
   return (
     <Dialog open={!!project} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-4xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]">
+      <DialogContent hideDefaultClose className="max-w-4xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]">
         {project && (
           <ScrollHint className="max-h-[88vh]">
             <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/60 p-2 text-white hover:bg-white/20" aria-label="Close"><X size={18} /></DialogClose>

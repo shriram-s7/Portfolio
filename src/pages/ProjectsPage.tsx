@@ -72,8 +72,12 @@ const ProjectsPage = () => {
       </div>
 
       {list.length ? (
-        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((p) => <ProjectCard key={p.slug} project={p} featured={false} onOpen={setOpen} id={`project-card-${p.slug}`} />)}
+        <div className="mx-auto grid max-w-6xl gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center sm:justify-items-stretch">
+          {list.map((p) => (
+            <div key={p.slug} className="w-full min-w-0 max-w-xl sm:max-w-none">
+              <ProjectCard project={p} featured={false} onOpen={setOpen} id={`project-card-${p.slug}`} />
+            </div>
+          ))}
         </div>
       ) : (
         <EmptyState text="No project matches. Clear the search or switch to All." />

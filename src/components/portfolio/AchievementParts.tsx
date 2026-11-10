@@ -57,7 +57,7 @@ export const AchievementDetail = ({ w, onClose }: { w: Win | null; onClose: () =
   const style = w ? rankStyle(w) : null;
   return (
     <Dialog open={!!w} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]">
+      <DialogContent hideDefaultClose className="max-w-xl w-[94vw] sm:w-full glass-card border-white/10 p-0 overflow-hidden z-[100]">
         {w && style && (
           <ScrollHint className="max-h-[88vh]">
             <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/60 p-2 text-white hover:bg-white/20" aria-label="Close"><X size={18} /></DialogClose>
