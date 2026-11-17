@@ -9,8 +9,10 @@ import { X } from 'lucide-react';
 const featuredSlugs = new Set(featuredProjects.map((p) => p.slug));
 const rest = projects.filter((p) => !featuredSlugs.has(p.slug));
 
+const ORDER = new Map(projects.map((p, i) => [p.slug, i]));
+
 const SORTS: Record<string, (a: Project, b: Project) => number> = {
-  featured: (a, b) => (a.featured || 99) - (b.featured || 99) || b.created.localeCompare(a.created),
+  featured: (a, b) => (a.featured || 99) - (b.featured || 99) || (ORDER.get(a.slug) ?? 0) - (ORDER.get(b.slug) ?? 0),
   newest: (a, b) => b.created.localeCompare(a.created),
   wins: (a, b) => Number(!!projectWin(b.slug)) - Number(!!projectWin(a.slug)) || (a.featured || 99) - (b.featured || 99),
 };

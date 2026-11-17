@@ -11,6 +11,7 @@ const THEME: Record<string, { from: string; to: string; glow: string }> = {
   security: { from: '#6d28d9', to: '#be185d', glow: 'rgba(168,85,247,0.45)' },
   logistics: { from: '#c2410c', to: '#b45309', glow: 'rgba(251,146,60,0.45)' },
   data: { from: '#047857', to: '#0e7490', glow: 'rgba(52,211,153,0.45)' },
+  embedded: { from: '#0f766e', to: '#0f172a', glow: 'rgba(45,212,191,0.42)' },
 };
 export const themeOf = (p: Project) => THEME[p.tags[0]] ?? THEME['fullstack'];
 export const tagLabel = (id: string) => TAGS.find((t) => t.id === id)?.label ?? id;

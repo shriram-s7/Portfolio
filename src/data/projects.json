@@ -174,8 +174,8 @@
     "result": "1st Place, CUMTA Urban Mobility Challenge (₹15,000)",
     "status": "",
     "github": "https://github.com/shriram-s7/pulse-echo",
-    "live": "https://web-phi-nine-yiiljttev5.vercel.app",
-    "video": "",
+    "live": "https://pulse-echo.vercel.app",
+    "video": "https://youtu.be/ed-NzdMA_xs",
     "release": "",
     "releaseLabel": "",
     "event": "CUMTA Urban Mobility Challenge (1st Place)",
@@ -185,6 +185,47 @@
     "challenges": [
       "Treats train arrivals as pulses and buses at nearby stops as echoes; the excess boardings give the transfer volume without any linked ticket data.",
       "Estimates the share to each stop and route, typical waits, and suggestions such as retiming or enlarging buses or adding feeder routes."
+    ]
+  },
+  {
+    "slug": "nextroute",
+    "name": "NextRoute",
+    "tagline": "Adaptive dispatch for Chennai buses, tested on the real GTFS network",
+    "tags": [
+      "logistics",
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Buses on high-frequency corridors bunch when a small delay lets a trailing bus catch up, leaving riders waiting 20-30 minutes for two overcrowded buses while the static timetable cannot react to rain, event surges or breakdowns.",
+    "built": [
+      "Deterministic 18-hour simulation of seven real Chennai GTFS routes on the GST Road corridor, running in a Web Worker with the fleet derived from the timetable and an 8% flex reserve.",
+      "Three dispatch levers: headway holding capped at 120 s, dynamic short-turning and flex-fleet insertion, each explained and available in auto, approve or reject mode.",
+      "60-minute rolling load forecast, a sensor watchdog that falls back to ticketing curves, a deck.gl live map and CSV/JSON export; over 20 seeds it cuts average wait 22.9% and left-behind riders 69.8% for 1.4% more bus-km."
+    ],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "deck.gl",
+      "Mapbox GL",
+      "MapLibre",
+      "Zustand"
+    ],
+    "result": "",
+    "status": "Simulation prototype",
+    "github": "https://github.com/shriram-s7/nextroute",
+    "live": "https://nextroute-chennai.vercel.app",
+    "video": "https://youtu.be/bHB8_MGsFZs",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-11-17",
+    "updated": "2026-11-17",
+    "context": "Independent prototype: real Chennai GTFS network, simulated riders and traffic",
+    "challenges": [
+      "Deterministic 18-hour simulation of seven real Chennai GTFS routes on the GST Road corridor, running in a Web Worker with the fleet derived from the timetable and an 8% flex reserve.",
+      "Three dispatch levers: headway holding capped at 120 s, dynamic short-turning and flex-fleet insertion, each explained and available in auto, approve or reject mode.",
+      "60-minute rolling load forecast, a sensor watchdog that falls back to ticketing curves, a deck.gl live map and CSV/JSON export; over 20 seeds it cuts average wait 22.9% and left-behind riders 69.8% for 1.4% more bus-km."
     ]
   },
   {
@@ -543,66 +584,6 @@
     "challenges": []
   },
   {
-    "slug": "sondra",
-    "name": "Sondra",
-    "tagline": "Private music streaming from your own Google Drive",
-    "tags": [
-      "fullstack"
-    ],
-    "featured": 0,
-    "problem": "Play your own audio library without copying files to a server.",
-    "built": [
-      "FastAPI backend streams from Google Drive over a read-only OAuth connection, with a React admin dashboard and a Flutter player for Android and Windows."
-    ],
-    "stack": [
-      "FastAPI",
-      "React",
-      "Flutter",
-      "Google Drive API"
-    ],
-    "result": "",
-    "status": "",
-    "github": "https://github.com/shriram-s7/sondra",
-    "live": "",
-    "video": "",
-    "release": "",
-    "releaseLabel": "",
-    "event": "",
-    "created": "2026-06-27",
-    "updated": "2026-11-08",
-    "context": "",
-    "challenges": []
-  },
-  {
-    "slug": "notally",
-    "name": "Notally",
-    "tagline": "Offline encrypted notebook app in Flutter",
-    "tags": [
-      "fullstack"
-    ],
-    "featured": 0,
-    "problem": "A secure offline notebook.",
-    "built": [
-      "Flutter app organised into core and feature modules, with an Android build."
-    ],
-    "stack": [
-      "Flutter",
-      "Dart"
-    ],
-    "result": "",
-    "status": "",
-    "github": "https://github.com/shriram-s7/Notally",
-    "live": "",
-    "video": "",
-    "release": "",
-    "releaseLabel": "",
-    "event": "",
-    "created": "2026-11-07",
-    "updated": "2026-11-08",
-    "context": "",
-    "challenges": []
-  },
-  {
     "slug": "bookmyshow-deluxe",
     "name": "BookMyShow Deluxe",
     "tagline": "Java Swing movie ticket booking app",
@@ -696,6 +677,145 @@
     "challenges": []
   },
   {
+    "slug": "auramed-aws",
+    "name": "AuraMed-AWS",
+    "tagline": "Archived AWS deployment of the AuraMed screening dashboard",
+    "tags": [
+      "ai-ml",
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "The earlier, smaller AuraMed: a way to put the screening dashboard online with the AWS stack it was built for, kept now as a deployment reference.",
+    "built": [
+      "React + Vite + Tailwind diagnostic dashboard deployed on AWS Amplify from GitHub with amplify.yml.",
+      "API Gateway HTTP API with a {proxy+} route to one EC2 instance running uvicorn; endpoints for breast, cervical and PCOS predictions plus patient start and test save.",
+      "In-memory storage only: DynamoDB was planned but never implemented."
+    ],
+    "stack": [
+      "AWS EC2",
+      "API Gateway",
+      "Amplify",
+      "FastAPI",
+      "PyTorch",
+      "React"
+    ],
+    "result": "",
+    "status": "Archived, not running",
+    "github": "https://github.com/shriram-s7/auramed-aws",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-03-01",
+    "updated": "2026-11-17",
+    "context": "Earlier AuraMed version hosted on AWS between March and September 2026",
+    "challenges": []
+  },
+  {
+    "slug": "sentinel",
+    "name": "Sentinel",
+    "tagline": "Self-diagnosing edge nodes that tag every reading with its own health",
+    "tags": [
+      "embedded"
+    ],
+    "featured": 0,
+    "problem": "Low-end MCU nodes keep sending readings even when the sensor, bus or the board itself has failed, so bad data looks like good data downstream.",
+    "built": [
+      "Every second it compares board temperature against an external NTC, checks the I2C bus, MCU supply current and flash, and appends a 1-byte health code to each reading.",
+      "sentinel.c/.h runs on an STM32G030 and compiles unchanged on a PC for fault runs, ablation studies and 30-day simulations; a Unicorn tool counts instructions per call.",
+      "Simulation: +2,384 B flash (7.3% of 32 KB) and +164 B RAM (3.2% of 8 KB); heat, drift, noise and bus faults caught 30/30, power 28/30, zero false alarms in normal runs and 4 false drift alarms in 3,205 node-days."
+    ],
+    "stack": [
+      "C",
+      "STM32G0",
+      "arm-none-eabi-gcc",
+      "Python",
+      "Unicorn"
+    ],
+    "result": "",
+    "status": "Simulation prototype",
+    "github": "https://github.com/shriram-s7/sentinel-techgium",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "TECHgium 2026 (Challenge 40)",
+    "created": "2026-11-17",
+    "updated": "2026-11-17",
+    "context": "TECHgium 2026, Challenge 40: self-diagnosing edge devices",
+    "challenges": []
+  },
+  {
+    "slug": "sondra",
+    "name": "Sondra",
+    "tagline": "Private music streaming from your own Google Drive",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Play your own music library from Google Drive without copying it to a server or paying a streaming service.",
+    "built": [
+      "FastAPI backend syncs a Drive folder into playlists, reads tags and cover art, proxies audio with range requests and pushes SSE updates.",
+      "React admin dashboard for the library, playlists and player; a Flutter app for Android and Windows adds offline playlists and downloads.",
+      "The SQLite database is disposable and rebuilt from Drive at startup, so free hosting resets do not lose the library."
+    ],
+    "stack": [
+      "FastAPI",
+      "React",
+      "Flutter",
+      "Google Drive API",
+      "SQLite"
+    ],
+    "result": "",
+    "status": "Personal single-user system",
+    "github": "https://github.com/shriram-s7/sondra",
+    "live": "https://sondra-admin.vercel.app",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-06-27",
+    "updated": "2026-11-17",
+    "context": "",
+    "challenges": []
+  },
+  {
+    "slug": "notally",
+    "name": "Notally",
+    "tagline": "Offline encrypted notebook app in Flutter",
+    "tags": [
+      "fullstack"
+    ],
+    "featured": 0,
+    "problem": "Notes should stay on the phone: no account, no cloud sync and no server that can read them.",
+    "built": [
+      "Master-password lock with Argon2id (64 MiB, 4 lanes, 10 passes) and biometric unlock; the hash, salt and database key live in platform secure storage.",
+      "Notes stored in a SQLCipher-encrypted SQLite database through Drift, edited with Flutter Quill.",
+      "Encrypted backup and restore with Argon2id + AES-256-GCM, plus master-password change from Settings."
+    ],
+    "stack": [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "Drift",
+      "SQLCipher",
+      "Argon2id"
+    ],
+    "result": "",
+    "status": "Android prototype, not security-reviewed",
+    "github": "https://github.com/shriram-s7/Notally",
+    "live": "",
+    "video": "",
+    "release": "",
+    "releaseLabel": "",
+    "event": "",
+    "created": "2026-11-07",
+    "updated": "2026-11-17",
+    "context": "",
+    "challenges": []
+  },
+  {
     "slug": "portfolio",
     "name": "Portfolio",
     "tagline": "This site: a data-driven personal portfolio",
@@ -705,7 +825,8 @@
     "featured": 0,
     "problem": "One place where every claim links to proof.",
     "built": [
-      "Content lives in JSON data files and proof folders; new wins and certificates need no code change."
+      "Content lives in JSON data files and proof folders; project covers and galleries are picked up by a Vite virtual module, so new work needs no component changes.",
+      "A local 3D rebuild, The Dev Garden, adds eight explorable 3D places and a recruiter quick view; it is not deployed or counted separately."
     ],
     "stack": [
       "Vite",
@@ -715,14 +836,14 @@
     ],
     "result": "",
     "status": "",
-    "github": "https://github.com/shriram-s7/portfolio-s-shriram",
-    "live": "",
+    "github": "https://github.com/shriram-s7/Portfolio",
+    "live": "https://portfolio-s-shriram.vercel.app",
     "video": "",
     "release": "",
     "releaseLabel": "",
     "event": "",
     "created": "2026-06-27",
-    "updated": "2026-11-08",
+    "updated": "2026-11-17",
     "context": "",
     "challenges": []
   }

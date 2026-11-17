@@ -36,6 +36,7 @@ export const TAGS = [
   { id: "security", label: "Security" },
   { id: "logistics", label: "Logistics" },
   { id: "data", label: "Data" },
+  { id: "embedded", label: "Embedded" },
 ] as const;
 
 /* ------------------------------------------------------------------ projects */
