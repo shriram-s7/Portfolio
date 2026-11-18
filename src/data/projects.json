@@ -756,9 +756,9 @@
     "featured": 0,
     "problem": "Play your own music library from Google Drive without copying it to a server or paying a streaming service.",
     "built": [
-      "FastAPI backend syncs a Drive folder into playlists, reads tags and cover art, proxies audio with range requests and pushes SSE updates.",
-      "React admin dashboard for the library, playlists and player; a Flutter app for Android and Windows adds offline playlists and downloads.",
-      "The SQLite database is disposable and rebuilt from Drive at startup, so free hosting resets do not lose the library."
+      "Purpose: a private, single-user music streaming system that plays an audio library stored in the owner's own Google Drive.",
+      "Consists of a backend service, an admin dashboard and a mobile and desktop player app.",
+      "Private project: the source code, live deployment, builds and test results are not published, so no code or demo is available in this portfolio."
     ],
     "stack": [
       "FastAPI",
@@ -768,9 +768,9 @@
       "SQLite"
     ],
     "result": "",
-    "status": "Personal single-user system",
-    "github": "https://github.com/shriram-s7/sondra",
-    "live": "https://sondra-admin.vercel.app",
+    "status": "Private project: no public code, demo or releases",
+    "github": "",
+    "live": "",
     "video": "",
     "release": "",
     "releaseLabel": "",
@@ -790,9 +790,9 @@
     "featured": 0,
     "problem": "Notes should stay on the phone: no account, no cloud sync and no server that can read them.",
     "built": [
-      "Master-password lock with Argon2id (64 MiB, 4 lanes, 10 passes) and biometric unlock; the hash, salt and database key live in platform secure storage.",
-      "Notes stored in a SQLCipher-encrypted SQLite database through Drift, edited with Flutter Quill.",
-      "Encrypted backup and restore with Argon2id + AES-256-GCM, plus master-password change from Settings."
+      "Purpose: a private offline notebook app where notes stay encrypted on the device, with no account and no cloud sync.",
+      "Android app with a master-password lock, biometric unlock and encrypted backup and restore.",
+      "Private project: the source code, builds and test results are not published, so no code or demo is available in this portfolio."
     ],
     "stack": [
       "Flutter",
@@ -803,8 +803,8 @@
       "Argon2id"
     ],
     "result": "",
-    "status": "Android prototype, not security-reviewed",
-    "github": "https://github.com/shriram-s7/Notally",
+    "status": "Private project: no public code, demo or releases",
+    "github": "",
     "live": "",
     "video": "",
     "release": "",

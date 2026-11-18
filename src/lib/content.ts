@@ -25,7 +25,13 @@ export interface Proof {
   badge?: string;
   photos: string[];
 }
-export const proofFor = (slug: string): Proof => proofManifest[slug] ?? { photos: [] };
+/** Wins whose gallery shows the certificate between the photos: group photo, certificate, then the rest (the cheque). */
+const CERT_SECOND = new Set(["cumta-urban-mobility-challenge"]);
+export const proofFor = (slug: string): Proof => {
+  const p: Proof = proofManifest[slug] ?? { photos: [] };
+  if (!CERT_SECOND.has(slug) || !p.cert || p.photos.length === 0) return p;
+  return { ...p, photos: [p.photos[0], p.cert, ...p.photos.slice(1)] };
+};
 
 /** Screenshots for a project: public/projects/<slug>/cover.webp plus gallery/. */
 export const mediaFor = (slug: string): { cover?: string; gallery: string[] } => projectMedia[slug] ?? { gallery: [] };

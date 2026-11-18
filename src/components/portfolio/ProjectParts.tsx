@@ -78,7 +78,7 @@ export const ProjectCard = ({ project, onOpen, featured = false, id }: { project
   const { cover } = mediaFor(project.slug);
   const [broken, setBroken] = useState(false);
   const hasShot = !!cover && !broken;
-  const host = project.live ? project.live.replace(/^https?:\/\//, '') : `github.com/shriram-s7/${project.github.split('/').pop()}`;
+  const host = project.live ? project.live.replace(/^https?:\/\//, '') : project.github ? `github.com/shriram-s7/${project.github.split('/').pop()}` : 'private project';
   return (
     <LiftCard id={id} onClick={() => onOpen(project)} glow={t.glow} className="group flex h-full w-full min-w-0 flex-col overflow-hidden">
       <div className="flex items-center gap-1.5 border-b border-white/10 bg-black/40 px-3 py-2">
